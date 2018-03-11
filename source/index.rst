@@ -7,8 +7,8 @@ Wanchain Documentation
 ===============================================================================
 
 ..  image:: img/wanchain-logo.png
-..   :height: 526px
-..   :width: 456px
+..   :height: 263px
+..   :width: 228px
    :scale: 50 %
    :alt: wanchain-logo
    :align: center
