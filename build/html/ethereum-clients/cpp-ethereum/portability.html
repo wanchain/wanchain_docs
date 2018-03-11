@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Portability &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="cpp-ethereum" href="index.html"/>
+        <link rel="next" title="Running" href="running.html"/>
+        <link rel="prev" title="Architecture" href="architecture.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Ethereum Clients</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../choosing-a-client.html">Choosing a client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../choosing-a-client.html#interacting-with-clients">Interacting with Clients</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">cpp-ethereum</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#details">Details</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="current-status.html">Current status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="building-from-source/index.html">Building from source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing-binaries/index.html">Installing binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Portability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="running.html">Running</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../go-ethereum/index.html">go-ethereum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyethapp/index.html">pyethapp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethereumjs-lib/index.html">ethereumjs-lib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethereumj/index.html">Ethereum(J)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethereumh/index.html">ethereumH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parity/index.html">Parity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ruby-ethereum/index.html">ruby-ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mining.html">Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contracts-and-transactions/index.html">Contracts and Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Ethereum Clients</a> &raquo;</li>
+        
+          <li><a href="index.html">cpp-ethereum</a> &raquo;</li>
+        
+      <li>Portability</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/ethereum-clients/cpp-ethereum/portability.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="portability">
+<span id="cpp-ethereum-portability"></span><h1>Portability<a class="headerlink" href="#portability" title="Permalink to this headline">¶</a></h1>
+<p>The Ethereum C++ client code is exceedingly portable, and is being successfully
+used on a huge range of different operating systems and devices.</p>
+<p>We continue to expand our range and are very open to pull-requests which add
+support for additional operating systems, compilers or devices.</p>
+<div class="section" id="operating-systems-verified-as-working">
+<h2>Operating systems verified as working<a class="headerlink" href="#operating-systems-verified-as-working" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Alpine Linux</li>
+<li>Arch Linux</li>
+<li>Debian 8 (Jessie and Stretch)</li>
+<li>Fedora 20</li>
+<li>Fedora 21</li>
+<li>Fedora 22</li>
+<li>openSUSE Leap 42.1</li>
+<li>PureOS 2.1</li>
+<li>Raspbian</li>
+<li>Sailfish OS 2.0</li>
+<li>Ubuntu 14.04 (Trusty)</li>
+<li>Ubuntu 14.10 (Utopic)</li>
+<li>Ubuntu 15.04 (Vivid)</li>
+<li>Ubuntu 15.10 (Wily)</li>
+<li>Ubuntu 16.04 (Xenial)</li>
+<li>Ubuntu Touch</li>
+<li>Ubuntu 15.04 MATE</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>BSD</dt>
+<dd><ul class="first last">
+<li>FreeBSD</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>OS X</dt>
+<dd><ul class="first last">
+<li>OS X Yosemite (10.10)</li>
+<li>OS X El Capitan (10.11)</li>
+<li>OS X 10.10 (Yosemite Server 4.0)</li>
+<li>OS X 10.11 (Yosemite Server 5.0)</li>
+<li>OS X 10.11 (Yosemite Server 5.1)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Windows</dt>
+<dd><ul class="first last">
+<li>Windows 7</li>
+<li>Windows 8</li>
+<li>Windows 8.1</li>
+<li>Windows 10</li>
+<li>Windows Server 2012 R2</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="operating-systems-work-in-progress">
+<h2>Operating systems - work in progress<a class="headerlink" href="#operating-systems-work-in-progress" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Maemo</li>
+<li>MeeGo</li>
+<li>Tizen</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>BSD</dt>
+<dd><ul class="first last">
+<li>iOS</li>
+<li>tvOS</li>
+<li>WatchOS</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Android</li>
+</ul>
+</div>
+<div class="section" id="devices-verified-as-working">
+<h2>Devices verified as working<a class="headerlink" href="#devices-verified-as-working" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>All varieties of desktop and laptop devices (Windows, OS X, Desktop Linux)</dt>
+<dd><ul class="first last">
+<li>64-bit (with rebuilt binaries)</li>
+<li>32-bit (not official supported, but they work)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Smartphones</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Jolla Phone</li>
+<li>Meizu MX4 Ubuntu Edition</li>
+<li>Nexus 5 (SailfishOS 2.0)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SBCs</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>BeagleBone Black</li>
+<li>Odroid XU3</li>
+<li>Project C.H.I.P.</li>
+<li>Raspberry Pi Model A</li>
+<li>Raspberry Pi Model B+</li>
+<li>Raspberry Pi Zero</li>
+<li>Raspberry Pi 2</li>
+<li>Raspberry Pi 3</li>
+<li>Wandboard Quad</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="devices-work-in-progress">
+<h2>Devices - work in progress<a class="headerlink" href="#devices-work-in-progress" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Smartwatches</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Samsung Gear S2</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>BSD</dt>
+<dd><ul class="first last">
+<li>Apple Watch</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Smartphones</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Nokia N9 (MeeGo)</li>
+<li>Nokia N900 (Meemo)</li>
+<li>Samsung Z1</li>
+<li>Samsung Z3</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Android</dt>
+<dd><ul class="first last">
+<li>Samsung Galaxy S3</li>
+<li>Samsung Galaxy S4</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>BSD</dt>
+<dd><ul class="first last">
+<li>iPhone 3GS</li>
+<li>iPhone 5</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Developer phones</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>Samsung RD-210</li>
+<li>Samsung RD-PQ</li>
+<li>Samsung TM1</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Tablets</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Android</dt>
+<dd><ul class="first last">
+<li>Samsung Galaxy Tab S 10.5</li>
+<li>Nexus 7</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>BSD</dt>
+<dd><ul class="first last">
+<li>iPad Air 2</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SBCs</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Linux</dt>
+<dd><ul class="first last">
+<li>DragonBoard 410c</li>
+<li>Intel Curie</li>
+<li>Intel Edison</li>
+<li>Intel NUC</li>
+<li>Minnowboard Max</li>
+<li>Odroid XU4</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="running.html" class="btn btn-neutral float-right" title="Running" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

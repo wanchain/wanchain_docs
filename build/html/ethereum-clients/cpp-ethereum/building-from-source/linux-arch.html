@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing dependencies for Arch Linux &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Building for Linux" href="linux.html"/>
+        <link rel="next" title="Building for Windows" href="windows.html"/>
+        <link rel="prev" title="Installing dependencies for openSUSE" href="linux-opensuse.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Ethereum Clients</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../choosing-a-client.html">Choosing a client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../choosing-a-client.html#interacting-with-clients">Interacting with Clients</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">cpp-ethereum</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#quick-start">Quick Start</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#details">Details</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../current-status.html">Current status</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Building from source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../installing-binaries/index.html">Installing binaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../running.html">Running</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../go-ethereum/index.html">go-ethereum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyethapp/index.html">pyethapp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethereumjs-lib/index.html">ethereumjs-lib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethereumj/index.html">Ethereum(J)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethereumh/index.html">ethereumH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../parity/index.html">Parity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ruby-ethereum/index.html">ruby-ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mining.html">Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contracts-and-transactions/index.html">Contracts and Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Ethereum Clients</a> &raquo;</li>
+        
+          <li><a href="../index.html">cpp-ethereum</a> &raquo;</li>
+        
+          <li><a href="index.html">Building from source</a> &raquo;</li>
+        
+          <li><a href="linux.html">Building for Linux</a> &raquo;</li>
+        
+      <li>Installing dependencies for Arch Linux</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/ethereum-clients/cpp-ethereum/building-from-source/linux-arch.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-dependencies-for-arch-linux">
+<h1>Installing dependencies for Arch Linux<a class="headerlink" href="#installing-dependencies-for-arch-linux" title="Permalink to this headline">¶</a></h1>
+<p>Compiling webthree-umbrella on Arch Linux requires dependencies from both the <a class="reference external" href="https://wiki.archlinux.org/index.php/Official_repositories">official repositories</a>
+and the <a class="reference external" href="https://wiki.archlinux.org/index.php/Arch_User_Repository">Arch User Repository (AUR)</a>. To install packages from the official repositories <a class="reference external" href="https://wiki.archlinux.org/index.php/Pacman">pacman</a> is used.
+For installation of packages from the AUR, a number of AUR helpers is <a class="reference external" href="https://wiki.archlinux.org/index.php/AUR_helpers">available</a>. For this guide, <a class="reference external" href="http://archlinux.fr/yaourt-en">yaourt</a> AUR helper is used.</p>
+<div class="section" id="installing-dependencies">
+<h2>Installing dependencies<a class="headerlink" href="#installing-dependencies" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p># from official repositories
+sudo pacman -Sy git base-devel cmake boost crypto++ leveldb llvm miniupnpc libcl opencl-headers libmicrohttpd qt5-base qt5-webengine</p>
+<p># from AUR
+yaourt -Sy libjson-rpc-cpp</p>
+</div></blockquote>
+</div>
+<div class="section" id="compiling-the-source-code">
+<h2>Compiling the source code<a class="headerlink" href="#compiling-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p>During this step, an installation folder for the Ethereum can be specified.
+Specification of the folder is optional though. If not given, the
+binary files will be located in the build folder. However, for this guide,
+it is assumed that the Ethereum files will be installed under <cite>/opt/eth</cite>. The reason for
+using <cite>/opt</cite> is that it makes much easier to delete the Ethereum files later on,
+as compared to having them installed under, e.g., <cite>/usr</cite>. Also <cite>/opt</cite> is commonly used
+to install software that is not managed by packaging systems, such as manually
+compiled programs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter webthree-umbrella folder after cloning its github repository</span>
+<span class="n">cd</span> <span class="n">webthree</span><span class="o">-</span><span class="n">umbrella</span>
+
+<span class="c1"># make a build folder and enter into it</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">build</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">build</span>
+
+<span class="c1"># create build files and specify Ethereum installation folder</span>
+<span class="n">cmake</span> <span class="o">..</span> <span class="o">-</span><span class="n">DCMAKE_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">eth</span>
+
+<span class="c1"># compile the source code</span>
+<span class="n">make</span>
+
+<span class="c1"># alternatively it is possible to specify number of compilation threads</span>
+<span class="c1"># for example to use 4 threads execute make as follows:</span>
+<span class="c1"># make -j 4</span>
+
+<span class="c1"># install the resulting binaries, shared libraries and header files into /opt</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>After successful compilation and installation, Ethereum binaries can be found in <cite>/opt/eth/bin</cite>,
+shared libraries in <cite>/opt/eth/lib</cite>, and header files in <cite>/opt/eth/include</cite>.</p>
+</div>
+<div class="section" id="specifying-ethereum-libraries-path">
+<h2>Specifying Ethereum libraries path<a class="headerlink" href="#specifying-ethereum-libraries-path" title="Permalink to this headline">¶</a></h2>
+<p>Since Ethereum was installed in <cite>/opt/eth</cite>, executing its binaries can result in linker error due to not being
+able to find the Ethereum shared libraries. To rectify this issue, it is needed to add the folder containing
+Ethereum shared libraries into <cite>LD_LIBRARY_PATH</cite> environmental variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># update ~/.bashrc</span>
+<span class="n">echo</span> <span class="s2">&quot;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/eth/lib&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+
+<span class="c1"># reload ~/.bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="windows.html" class="btn btn-neutral float-right" title="Building for Windows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="linux-opensuse.html" class="btn btn-neutral" title="Installing dependencies for openSUSE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

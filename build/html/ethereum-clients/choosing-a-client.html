@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Choosing a client &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Ethereum Clients" href="index.html"/>
+        <link rel="next" title="cpp-ethereum" href="cpp-ethereum/index.html"/>
+        <link rel="prev" title="Ethereum Clients" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ethereum Clients</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Choosing a client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-are-there-multiple-ethereum-clients">Why are there multiple Ethereum clients?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-should-i-install-on-my-desktop-laptop">What should I install on my desktop/laptop?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-should-i-install-on-my-mobile-tablet">What should I install on my mobile/tablet?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-should-i-install-on-my-sbc">What should I install on my SBC?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interacting-with-clients">Interacting with Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-ethereum/index.html">cpp-ethereum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="go-ethereum/index.html">go-ethereum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyethapp/index.html">pyethapp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethereumjs-lib/index.html">ethereumjs-lib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethereumj/index.html">Ethereum(J)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethereumh/index.html">ethereumH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parity/index.html">Parity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruby-ethereum/index.html">ruby-ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mining.html">Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contracts-and-transactions/index.html">Contracts and Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Ethereum Clients</a> &raquo;</li>
+        
+      <li>Choosing a client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ethereum-clients/choosing-a-client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choosing-a-client">
+<span id="sec-clients"></span><h1>Choosing a client<a class="headerlink" href="#choosing-a-client" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-are-there-multiple-ethereum-clients">
+<h2>Why are there multiple Ethereum clients?<a class="headerlink" href="#why-are-there-multiple-ethereum-clients" title="Permalink to this headline">¶</a></h2>
+<p>From the earliest days of the project there have been multiple
+client implementations across a range of different operating systems.  That
+client diversity is a huge win for the ecosystem as a whole.
+It lets us verify that the protocol (specified in the <a class="reference external" href="https://github.com/ethereum/yellowpaper">Yellow Paper</a>)
+is unambiguous.  It keeps the door open for new innovation.  It keeps us
+all honest.  However, it can be very confusing for end-users, because there
+is no universal “Ethereum Installer” for them to use.</p>
+<p>As of September 2016, the leading implementations are <a class="reference internal" href="go-ethereum/index.html#go-ethereum"><span class="std std-ref">go-ethereum</span></a> and <a class="reference internal" href="parity/index.html#parity"><span class="std std-ref">Parity</span></a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="12%" />
+<col width="25%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Client</th>
+<th class="head">Language</th>
+<th class="head">Developers</th>
+<th class="head">Latest release</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="go-ethereum/index.html#go-ethereum"><span class="std std-ref">go-ethereum</span></a></td>
+<td>Go</td>
+<td><a class="reference external" href="https://ethereum.org/foundation">Ethereum Foundation</a></td>
+<td><a class="reference external" href="https://github.com/ethereum/go-ethereum/releases/tag/v1.4.18">go-ethereum-v1.4.18</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="parity/index.html#parity"><span class="std std-ref">Parity</span></a></td>
+<td>Rust</td>
+<td><a class="reference external" href="https://ethcore.io/">Ethcore</a></td>
+<td><a class="reference external" href="https://github.com/ethcore/parity/releases/tag/v1.4.0">Parity-v1.4.0</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cpp-ethereum/index.html#cpp-ethereum"><span class="std std-ref">cpp-ethereum</span></a></td>
+<td>C++</td>
+<td><a class="reference external" href="https://ethereum.org/foundation">Ethereum Foundation</a></td>
+<td><a class="reference external" href="https://github.com/bobsummerwill/cpp-ethereum/releases/tag/v1.3.0">cpp-ethereum-v1.3.0</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="pyethapp/index.html#pyethapp"><span class="std std-ref">pyethapp</span></a></td>
+<td>Python</td>
+<td><a class="reference external" href="https://ethereum.org/foundation">Ethereum Foundation</a></td>
+<td><a class="reference external" href="https://github.com/ethereum/pyethapp/releases/tag/v1.5.0">pyethapp-v1.5.0</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ethereumjs-lib/index.html#ethereumjs-lib"><span class="std std-ref">ethereumjs-lib</span></a></td>
+<td>Javascript</td>
+<td><a class="reference external" href="https://ethereum.org/foundation">Ethereum Foundation</a></td>
+<td><a class="reference external" href="https://github.com/ethereumjs/ethereumjs-lib/releases/tag/v3.0.0">ethereumjs-lib-v3.0.0</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ethereumj/index.html#ethereum-j"><span class="std std-ref">Ethereum(J)</span></a></td>
+<td>Java</td>
+<td><a class="reference external" href="http://www.ether.camp">&lt;ether.camp&gt;</a></td>
+<td><a class="reference external" href="https://github.com/ethereum/ethereumj/releases/tag/1.3.1">ethereumJ-v1.3.1</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="ruby-ethereum/index.html#ruby-ethereum"><span class="std std-ref">ruby-ethereum</span></a></td>
+<td>Ruby</td>
+<td><a class="reference external" href="https://github.com/janx/">Jan Xie</a></td>
+<td><a class="reference external" href="https://rubygems.org/gems/ruby-ethereum/versions/0.9.6">ruby-ethereum-v0.9.6</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="ethereumh/index.html#ethereumh"><span class="std std-ref">ethereumH</span></a></td>
+<td>Haskell</td>
+<td><a class="reference external" href="http://www.blockapps.net/">BlockApps</a></td>
+<td>no Homestead release yet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="what-should-i-install-on-my-desktop-laptop">
+<h2>What should I install on my desktop/laptop?<a class="headerlink" href="#what-should-i-install-on-my-desktop-laptop" title="Permalink to this headline">¶</a></h2>
+<p>Most users will likely just install <a class="reference external" href="https://github.com/ethereum/mist">Mist / Ethereum Wallet</a>
+and that will be enough for their needs.</p>
+<p>The Ethereum Wallet is a “single dapp” deployment of the <strong>Mist Browser</strong>
+which will be the centerpiece of the Metropolis phase of development, which
+comes after Homestead.</p>
+<p>Mist comes with bundled <a class="reference internal" href="go-ethereum/index.html#go-ethereum"><span class="std std-ref">go-ethereum</span></a> and <a class="reference internal" href="cpp-ethereum/index.html#cpp-ethereum"><span class="std std-ref">cpp-ethereum</span></a> binaries
+and if you are not running a command-line Ethereum client when Mist starts
+then it will start syncing the blockchain using one of the bundled clients
+(defaulting to <strong>geth</strong>).  If you want to use Parity with Mist, or to run Mist against
+a private network, just start your node before Mist, and Mist
+will connect to your node rather than starting one itself.</p>
+<p><strong>Work is underway to add Parity and other clients as “first-class entities”
+to Mist too.</strong></p>
+<p>If you want to interact with Ethereum on the command-line, and to take
+advantage of the Javascript console then you will want to install one of
+the client applications directly, as well as Mist.  Follow the links in
+the table above for further instructions.</p>
+<p>If you want to do mining then Mist will not be sufficient.  Check out
+the <a class="reference internal" href="../mining.html#mining"><span class="std std-ref">Mining</span></a> section.</p>
+</div>
+<div class="section" id="what-should-i-install-on-my-mobile-tablet">
+<h2>What should I install on my mobile/tablet?<a class="headerlink" href="#what-should-i-install-on-my-mobile-tablet" title="Permalink to this headline">¶</a></h2>
+<p>We are at the very beginning of our support for mobile devices.   The Go
+team are publishing experimental iOS and Android libraries, which some
+developers are using to start bootstrapping mobile applications, but there
+are not yet any mobile Ethereum clients available.</p>
+<p>The main hinderance to the use of Ethereum on mobile devices is that the
+Light Client support is still incomplete.   The work which has been done is
+off in a private branch, and is only available for the Go client.
+doublethinkco will be starting development of Light Client for the C++ client
+in the coming months, following grant funding.</p>
+<p>Check out <a class="reference external" href="http://status.im">Status.im</a>, who were initially using
+<a class="reference external" href="https://github.com/status-im/ethereumj-personal">ethereumj-personal</a> based
+on <a class="reference internal" href="ethereumj/index.html#ethereum-j"><span class="std std-ref">Ethereum(J)</span></a>, but have recently flipped to Geth cross-builds with
+Light Client.</p>
+</div>
+<div class="section" id="what-should-i-install-on-my-sbc">
+<h2>What should I install on my SBC?<a class="headerlink" href="#what-should-i-install-on-my-sbc" title="Permalink to this headline">¶</a></h2>
+<p>You have some choice here depending on your skill level, and what you are looking to do.</p>
+<ul class="simple">
+<li>Download a fully prepared image(link to page with detailed download &amp; install instructions)<ul>
+<li>If you are new to Ethereum AND SBC boards such as the Raspberry Pi then this is for you! Simply download the image specific to the dev board you are working with, burn it to an SD card, boot your device, and run Ethereum!</li>
+</ul>
+</li>
+<li>Download a pre-compiled application(link to page with detailed download &amp; install instructions)<ul>
+<li>If you already have an SBC running and have a specific, preferred OS or setup that you want to keep, then this is your best option! Depending on the platform, you can simply download the apropriate executable, and with minimal linking of libraries and setting of PATH you can have Ethereum running in your existing environment!</li>
+</ul>
+</li>
+<li>Build from source using customizable scripts(link to page with more detail and individual SBC links to <a class="reference external" href="https://github.com/ethembedded">https://github.com/ethembedded</a>)<ul>
+<li>Looking to perform a custom install?  We have scripts available to compile from source “on device”. Our scripts contain auto-install of dependencies as well as the client itself. This will allow you to install a specific version of the Ethereum client(i.e.-“develop”, “master”, etc.), compile your own forked version of a client, and generally play around with the intracacies of the build process.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="interacting-with-clients">
+<h1>Interacting with Clients<a class="headerlink" href="#interacting-with-clients" title="Permalink to this headline">¶</a></h1>
+<p>In order to interact with Ethereum clients programatically, please refer to the <a class="reference internal" href="../connecting-to-clients/index.html#connecting-to-clients"><span class="std std-ref">Connecting to Ethereum Clients</span></a> section.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpp-ethereum/index.html" class="btn btn-neutral float-right" title="cpp-ethereum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Ethereum Clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

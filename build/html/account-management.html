@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Account Management &mdash; Wanchain Homestead 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Wanchain Homestead 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Mining" href="mining.html"/>
+        <link rel="prev" title="web3.py" href="connecting-to-clients/web3.py/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Wanchain Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Account Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accounts">Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyfiles">Keyfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-account">Creating an account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-geth-account-new">Using <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-geth-console">Using geth console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-mist-ethereum-wallet">Using Mist Ethereum wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-multi-signature-wallet-in-mist">Creating a Multi-Signature Wallet in Mist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-eth">Using Eth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-ethkey-deprecated">Using EthKey (deprecated)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-your-presale-wallet">Importing your presale wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Using Mist Ethereum wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-geth">Using geth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-an-account">Updating an account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Using geth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-restore-accounts">Backup and restore accounts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-backup-restore">Manual backup/restore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-an-unencrypted-private-key">Importing an unencrypted private key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mining.html">Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wanchain Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Account Management</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/account-management.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="account-management">
+<h1>Account Management<a class="headerlink" href="#account-management" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="accounts">
+<span id="id1"></span><h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
+<p>Accounts play a central role in Ethereum. There are two types of accounts: <em>externally owned accounts</em> (EOAs) and <em>contract accounts</em>. Here we focus on externally owned accounts, which will be referred to simply as <em>accounts</em>. Contract accounts will be referred to as <em>contracts</em> and are <span class="xref std std-ref">discussed in detail in Contracts</span>. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called <em>state objects</em>. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Ethereum network which is updated with every block and which the network really needs to reach a consensus about.
+Accounts are essential for users to interact with the Ethereum blockchain via transactions.</p>
+<p>If we restrict Ethereum to only externally owned accounts and allow only transactions between them, we arrive at an “altcoin” system that is less powerful than bitcoin itself and can only be used to transfer ether.</p>
+<p>Accounts represent identities of external agents (e.g., human personas, mining nodes or automated agents). Accounts use public key cryptography to sign transaction so that the EVM can securely validate the identity of a transaction sender.</p>
+</div>
+<div class="section" id="keyfiles">
+<h2>Keyfiles<a class="headerlink" href="#keyfiles" title="Permalink to this headline">¶</a></h2>
+<p>Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their <em>address</em> which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a <em>keyfile</em>. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of your Ethereum node’s data directory. Make sure you backup your keyfiles regularly! See the section <a class="reference internal" href="#backup-and-restore-accounts"><span class="std std-ref">Backup and restore accounts</span></a> for more information.</p>
+<p>Creating a key is tantamount to creating an account.</p>
+<ul class="simple">
+<li>You don’t need to tell anybody else you’re doing it</li>
+<li>You don’t need to synchronize with the blockchain</li>
+<li>You don’t need to run a client</li>
+<li>You don’t even need to be connected to the internet</li>
+</ul>
+<p>Of course your new account will not contain any Ether. But it’ll be yours and you can be certain that without your key and your password, nobody else can ever access it.</p>
+<p>It is safe to transfer the entire directory or any individual keyfile between Ethereum nodes.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Note that in case you are adding keyfiles to your node from a different node, the order of accounts may change. So make sure you do not rely or change the index in your scripts or code snippets.</p>
+</div>
+</div>
+<div class="section" id="creating-an-account">
+<span id="id2"></span><h2>Creating an account<a class="headerlink" href="#creating-an-account" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>Remember your passwords and <a href="#backup-and-restore-accounts">backup your keyfiles</a>.</strong> In order to send transactions from an account, including sending ether, you must have BOTH the keyfile and the password. Be absolutely sure to have a copy of your keyfile AND remember the password for that keyfile, and store them both as securely as possible. There are no escape routes here; lose the keyfile or forget your password and all your ether is gone. It is NOT possible to access your account without a password and there is no <em>forgot my password</em> option here. Do not forget it.</p>
+</div>
+<div class="section" id="using-geth-account-new">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code><a class="headerlink" href="#using-geth-account-new" title="Permalink to this headline">¶</a></h3>
+<p>Once you have the geth client installed, creating an account is merely a case of executing the <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span> <span class="pre">new</span></code> command in a terminal.</p>
+<p>Note that you do not have to run the geth client or sync up with the blockchain to use the <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span></code> command.</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>$ geth account new
+
+  Your new account is locked with a password. Please give a password. Do not forget this password.
+  Passphrase:
+  Repeat Passphrase:
+  Address: <span class="o">{</span>168bc315a2ee09042d83d7c5811b533620531f67<span class="o">}</span>
+</pre></div>
+</div>
+<p>For non-interactive use you supply a plaintext password file as argument to the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag. The data in the file consists of the raw bytes of the password optionally followed by a single newline.</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>$ geth --password /path/to/password account new
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Using the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag is meant to be used only for testing or automation in trusted environments. It is a bad idea to save your password to file or expose it in any other way. If you do use the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag with a password file, make sure the file is not readable or even listable for anyone but you. You can achieve this in Mac/Linux systems with:</p>
+</div>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>touch /path/to/password
+chmod <span class="m">600</span> /path/to/password
+cat &gt; /path/to/password
+&gt;I <span class="nb">type</span> my pass
+</pre></div>
+</div>
+<p>To list all the accounts with keyfiles currently in your <code class="docutils literal notranslate"><span class="pre">keystore</span></code> folder use the <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommand of the <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">account</span></code> command:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>$ geth account list
+
+account <span class="c1">#0: {a94f5374fce5edbc8e2a8697c15331677e6ebf0b}</span>
+account <span class="c1">#1: {c385233b188811c9f355d4caec14df86d6248235}</span>
+account <span class="c1">#2: {7f444580bfef4b9bc7e14eb7fb2a029336b07c9d}</span>
+</pre></div>
+</div>
+<p>The filenames of keyfiles has the format <code class="docutils literal notranslate"><span class="pre">UTC--&lt;created_at</span> <span class="pre">UTC</span> <span class="pre">ISO8601&gt;-&lt;address</span> <span class="pre">hex&gt;</span></code>. The order of accounts when listing, is lexicographic, but as a consequence of the timestamp format, it is actually order of creation.</p>
+</div>
+<div class="section" id="using-geth-console">
+<h3>Using geth console<a class="headerlink" href="#using-geth-console" title="Permalink to this headline">¶</a></h3>
+<p>In order to create a new account using geth, we must first start geth in console mode (or you can use <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">attach</span></code> to attach a console to an already running instance):</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; geth console <span class="m">2</span>&gt;&gt; file_to_log_output
+instance: Geth/v1.4.0-unstable/linux/go1.5.1
+coinbase: coinbase: <span class="o">[</span>object Object<span class="o">]</span>
+at block: <span class="m">865174</span> <span class="o">(</span>Mon, <span class="m">18</span> Jan <span class="m">2016</span> <span class="m">02</span>:58:53 GMT<span class="o">)</span>
+datadir: /home/USERNAME/.ethereum
+</pre></div>
+</div>
+<p>The console allows you to interact with your local node by issuing commands. For example, try the command to list your accounts:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span>
+
+<span class="p">{</span>
+<span class="nx">code</span><span class="o">:</span> <span class="o">-</span><span class="mi">32000</span><span class="p">,</span>
+<span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;no keys in store&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This shows that you have no accounts. You can also create an account from the console:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">newAccount</span><span class="p">()</span>
+<span class="nx">Passphrase</span><span class="o">:</span>
+<span class="nx">Repeat</span> <span class="nx">passphrase</span><span class="o">:</span>
+<span class="s2">&quot;0xb2f69ddf70297958e582a0cc98bce43294f1007d&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember to use a strong and randomly generated password.</p>
+</div>
+<p>We just created our first account. If we try to list our accounts again we can see our new account:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span>
+<span class="p">[</span><span class="s2">&quot;0xb2f69ddf70297958e582a0cc98bce43294f1007d&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-mist-ethereum-wallet">
+<span id="id3"></span><h3>Using Mist Ethereum wallet<a class="headerlink" href="#using-mist-ethereum-wallet" title="Permalink to this headline">¶</a></h3>
+<p>For the command line averse, there is now a GUI-based option for creating accounts: The “official” Mist Ethereum wallet. The Mist Ethereum wallet, and its parent Mist project, are being developed under the auspices of the Ethereum Foundation, hence the “official” status. Versions of the wallet app are available for Linux, Mac OS X, and Windows.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The Mist wallet is beta software. Please beware and use it at your own risk.</p>
+</div>
+<p>Creating an account using the GUI Mist Ethereum wallet couldn’t be easier. In fact, your first account is created during the installation of the app.</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/ethereum/mist/releases">Download the latest version of the wallet app</a>  for your operating system. Opening the Wallet App will kick off syncing a full copy of the Ethereum blockchain on your computer, since you will in effect be running a full geth node.</li>
+<li>Unzip the downloaded folder and run the Ethereum-Wallet executable file.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/51Downloading.png"><img alt="downloading-mist" class="align-center" src="_images/51Downloading.png" style="width: 436.5px; height: 351.75px;" /></a>
+<ol class="arabic simple" start="3">
+<li>Wait for the blockchain to fully sync, then follow the instructions on the screen and your first account will be created.</li>
+<li>When you launch the Mist Ethereum wallet for the first time, you will see the account you created during the installation process. By default it will be named MAIN ACCOUNT (ETHERBASE).</li>
+</ol>
+<a class="reference internal image-reference" href="_images/51OpeningScreen.png"><img alt="opening-screen" class="align-center" src="_images/51OpeningScreen.png" style="width: 512.0px; height: 469.0px;" /></a>
+<ol class="arabic simple" start="5">
+<li>Creating additional accounts is easy; just click on ADD ACCOUNT in the app’s main screen and enter the required password.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.</p>
+</div>
+</div>
+<div class="section" id="creating-a-multi-signature-wallet-in-mist">
+<h3>Creating a Multi-Signature Wallet in Mist<a class="headerlink" href="#creating-a-multi-signature-wallet-in-mist" title="Permalink to this headline">¶</a></h3>
+<p>The Mist Ethereum wallet has an option to secure your wallet balance with a multisig wallet. The advantage of using a multisig wallet is that it requires authorization from more than one account to withdraw larger amounts from your balance. Before you can create a multisig wallet, you’ll need to create more than one account.</p>
+<p>It’s very easy to create account files in Mist. In the ‘Accounts’ section click ‘Add Account’. Pick a strong yet easy-to-remember password (remember there is no password recovery option), confirm it, and your account is created. Create at least 2 accounts. Secondary accounts can be created on separate computers running Mist if you prefer (and theoretically make your multisig more secure doing it this way). You only need the public keys (your deposit addresses) of your secondary accounts when creating the multisig wallet (copy/paste them, do not ever type them by hand). Your primary account will be needed to create the multisig wallet contract, so it must be on the computer you are creating the multisig wallet on.</p>
+<p>Now that you have your accounts setup, be safe and back them up (if your computer crashes, you will lose your balance if you do not have a backup). Click ‘Backup’ in the top menu. Choose the ‘keystore’ folder, opposite-click on it / choose ‘copy’ (do NOT choose ‘cut’, that would be very bad). Navigate to your desktop, opposite-click in a blank area and choose ‘paste’. You may want to rename this new copy of the ‘keystore’ folder to something like ‘Ethereum-keystore-backup-year-month-day’ so you have quick recognition of it later. At this point you can then add the folder contents to a zip / rar file (and even password-protect the archive with another strong yet easy-to-remember password if backing up online), copy it to a USB Drive, burn it to a CD / DVD, or upload it to online storage (Dropbox / Google Drive / etc).</p>
+<p>You now should add approximately no less than 0.02 ETH to your primary account (the account you will initiate creation of a multisig wallet with). This is required for the transaction fee when you create the multisig wallet contract. An additional 1 ETH (or more) is also needed, because Mist currently requires this to assure wallet contract transactions have enough ‘gas’ to execute properly…so no less than about 1.02 ETH total for starters.</p>
+<p>You will be entering the full addresses of all the accounts you are attaching to this multisig wallet, when you create it. I recommend copying / pasting each address into a plain text editor (notepad / kedit / etc), after going to each account’s details page in Mist, and choosing ‘copy address’ from the right-side column of buttons. Never type an address by hand, or you run a very high risk of typos and could lose your balance sending transactions to the wrong address.</p>
+<p>We are now ready to create the multisig wallet. Under ‘Wallet Contracts’, select ‘Add Wallet Contract’. Give it a name, select the primary account owner, and choose ‘Multisignature Wallet Contract’. You will see something like this appear:</p>
+<p>“This is a joint account controlled by X owners. You can send up to X ether per day. Any transaction over that daily limit requires the confirmation of X owners.”</p>
+<p>Set whatever amount of owners (accounts) you are attaching to this multisig wallet, whatever you want for a daily withdrawal limit (that only requires one account to withdraw that amount), and how many owners (accounts) are required to approve any withdrawal amount over the daily limit.</p>
+<p>Now add the addresses of the accounts that you copied / pasted into your text editor earlier, confirm all your settings are correct, and click ‘Create’ at the bottom. You will then need to enter your password to send the transaction. In the ‘Wallet Contracts’ section it should show your new wallet, and say ‘creating’.</p>
+<p>When wallet creation is complete, you should see your contract address on the screen. Select the entire address, copy / paste it into a new text file in your text editor, and save the text file to your desktop as ‘Ethereum-Wallet-Address.txt’, or whatever you want to name it.</p>
+<p>Now all you need to do is backup the ‘Ethereum-Wallet-Address.txt’ file the same way you backed up your account files, and then you are ready to load your new multisig wallet with ETH using this address.</p>
+<p>If you are restoring from backup, simply copy the files inside the ‘Ethereum-keystore-backup’ folder over into the ‘keystore’ folder mentioned in the first section of this walkthrough. FYI, you may need to create the ‘keystore’ folder if it’s a brand new install of Mist on a machine it was never installed on before (the first time you create an account is when this folder is created). As for restoring a multisig wallet, instead of choosing ‘Multisignature Wallet Contract’ like we did before when creating it, we merely choose ‘Import Wallet’ instead.</p>
+<p>Troubleshooting:</p>
+<ul class="simple">
+<li>Mist won’t sync. One solution that works well is syncing your PC hardware clock with an NTP server so the time is exactly correct…then reboot.</li>
+<li>Mist starts after syncing, but is a blank white screen. Chances are you are running the “xorg” video drivers on a Linux-based OS (Ubuntu, Linux Mint, etc). Try installing the manufacturer’s video driver instead.</li>
+<li>“Wrong password” notice. This seems to be a false notice on occasion on current Mist versions. Restart Mist and the problem should go away (if you indeed entered the correct password).</li>
+</ul>
+</div>
+<div class="section" id="using-eth">
+<h3>Using Eth<a class="headerlink" href="#using-eth" title="Permalink to this headline">¶</a></h3>
+<p>Every option related to key management available using geth can be used the same way in eth.</p>
+<p>Below are “account” related options:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span> <span class="nx">account</span> <span class="nx">list</span>  <span class="c1">// List all keys available in wallet.</span>
+<span class="o">&gt;</span> <span class="nx">eth</span> <span class="nx">account</span> <span class="k">new</span>   <span class="c1">// Create a new key and add it to the wallet.</span>
+<span class="o">&gt;</span> <span class="nx">eth</span> <span class="nx">account</span> <span class="nx">update</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">uuid</span><span class="o">&gt;|&lt;</span><span class="nx">address</span><span class="o">&gt;</span> <span class="p">,</span> <span class="p">...</span> <span class="p">]</span>  <span class="c1">// Decrypt and re-encrypt given keys.</span>
+<span class="o">&gt;</span> <span class="nx">eth</span> <span class="nx">account</span> <span class="kr">import</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">uuid</span><span class="o">&gt;|&lt;</span><span class="nx">file</span><span class="o">&gt;|&lt;</span><span class="nx">secret</span><span class="o">-</span><span class="nx">hex</span><span class="o">&gt;</span><span class="p">]</span> <span class="c1">// Import keys from given source and place in wallet.</span>
+</pre></div>
+</div>
+<p>Below are “wallet” related option:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span> <span class="nx">wallet</span> <span class="kr">import</span> <span class="o">&lt;</span><span class="nx">file</span><span class="o">&gt;</span> <span class="c1">//Import a presale wallet.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the ‘account import’ option can only be used to import generic key file. the ‘wallet import’ option can only be used to import a presale wallet.</p>
+</div>
+<p>It is also possible to access keys management from the integrated console (using the built-in console or geth attach):</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">personal</span>
+<span class="p">{</span>
+      <span class="nx">listAccounts</span><span class="o">:</span> <span class="p">[],</span>
+      <span class="nx">getListAccounts</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">),</span>
+      <span class="nx">lockAccount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(),</span>
+      <span class="nx">newAccount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(),</span>
+      <span class="nx">unlockAccount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ethkey-deprecated">
+<h3>Using EthKey (deprecated)<a class="headerlink" href="#using-ethkey-deprecated" title="Permalink to this headline">¶</a></h3>
+<p>Ethkey is a CLI tool of the C++ implementation that allows you to interact with the Ethereum wallet. With it you can list, inspect, create, delete and modify keys and inspect, create and sign transactions.</p>
+<p>We will assume you have not yet run a client such as eth or anything in the Aleth series of clients. If you have, you can skip this section.
+To create a wallet, run <code class="docutils literal notranslate"><span class="pre">ethkey</span></code> with the <code class="docutils literal notranslate"><span class="pre">createwallet</span></code> command:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; ethkey createwallet
+</pre></div>
+</div>
+<p>Please enter a MASTER passphrase to protect your key store (make it strong!):
+You’ll be asked for a “master” passphrase. This protects your privacy and acts as a default password for any keys. You’ll need to confirm it by entering the same text again.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use a strong randomly generated password.</p>
+</div>
+<p>We can list the keys within the wallet simply by using the list command:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; ethkey list
+
+No keys found.
+</pre></div>
+</div>
+<p>We haven’t yet created any keys, and it’s telling us so! Let’s create one.</p>
+<p>To create a key, we use the <code class="docutils literal notranslate"><span class="pre">new</span></code> command. To use it we must pass a name - this is the name we’ll give to this account in the wallet. Let’s call it “test”:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; ethkey new <span class="nb">test</span>
+</pre></div>
+</div>
+<p>Enter a passphrase with which to secure this account (or nothing to use the master passphrase).
+It will prompt you to enter a passphrase to protect this key. If you just press enter, it’ll use the default “master” passphrase. Typically this means you won’t need to enter the passphrase for the key when you want to use the account (since it remembers the master passphrase). In general, you should try to use a different passphrase for each key since it prevents one compromised passphrase from giving access to other accounts. However, out of convenience you might decide that for low-security accounts to use the same passphrase.</p>
+<p>Here, let’s give it the incredibly imaginative passphrase of 123. (Never ever use simple passwords like this for anything else than ephemeral test accounts).
+Once you enter a passphrase, it’ll ask you to confirm it by entering again. Enter 123 a second time.
+Because you gave it its own passphrase, it’ll also ask you to provide a hint for this password which will be displayed to you whenever it asks you to enter it. The hint is stored in the wallet and is itself protected by the master passphrase. Enter the truly awful hint of 321 backwards.</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; ethkey new <span class="nb">test</span>
+
+Enter a passphrase with which to secure this account <span class="o">(</span>or nothing to use the master passphrase<span class="o">)</span>:
+Please confirm the passphrase by entering it again:
+Enter a hint to <span class="nb">help</span> you remember this passphrase: <span class="m">321</span> backwards
+Created key 055dde03-47ff-dded-8950-0fe39b1fa101
+  Name: <span class="nb">test</span>
+  Password hint: <span class="m">321</span> backwards
+  ICAP: XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ
+  Raw hex: 0092e965928626f8880629cec353d3fd7ca5974f
+</pre></div>
+</div>
+<p>All normal (aka direct) ICAP addresses begin with XE so you should be able to recognize them easily. Notice also that the key has another identifier after Created key. This is known as the UUID. This is a unique identifier for the key that has absolutely nothing to do with the account itself. Knowing it does nothing to help an attacker discover who you are on the network. It also happens to be the filename for the key, which you can find in either ~/.web3/keys (Mac or Linux) or $HOME/AppData/Web3/keys (Windows).
+Now let’s make sure it worked properly by listing the keys in the wallet:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>&gt; ethkey list
+055dde03-47ff-dded-8950-0fe39b1fa101 0092e965… XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ  <span class="nb">test</span>
+</pre></div>
+</div>
+<p>It reports one key on each line (for a total of one key here). In this case our key is stored in a file 055dde… and has an ICAP address beginning XE472EVK…. Not especially easy things to remember so rather helpful that it has its proper name, test, too.</p>
+</div>
+</div>
+<div class="section" id="importing-your-presale-wallet">
+<h2>Importing your presale wallet<a class="headerlink" href="#importing-your-presale-wallet" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Using Mist Ethereum wallet<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Importing your presale wallet using the GUI Mist Ethereum wallet is very easy. In fact, you will be asked if you want to import your presale wallet during the installation of the app.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Mist wallet is beta software. Beware and use it at your own risk.</p>
+</div>
+<p>Instructions for installing the Mist Ethereum wallet are given in the section <a class="reference internal" href="#using-mist-ethereum-wallet"><span class="std std-ref">Creating an account: Using Mist Ethereum wallet</span></a>.</p>
+<p>Simply drag-and-drop your <code class="docutils literal notranslate"><span class="pre">.json</span></code> presale wallet file into the designated area and enter your password to import your presale account.</p>
+<a class="reference internal image-reference" href="_images/51PresaleImportInstall.png"><img alt="presale-import" class="align-center" src="_images/51PresaleImportInstall.png" style="width: 436.5px; height: 351.75px;" /></a>
+<p>If you choose not to import your presale wallet during installation of the app, you can import it at any time by selecting the <code class="docutils literal notranslate"><span class="pre">Accounts</span></code> menu in the app’s menu bar and then selecting <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Pre-sale</span> <span class="pre">Accounts</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.</p>
+</div>
+</div>
+<div class="section" id="using-geth">
+<h3>Using geth<a class="headerlink" href="#using-geth" title="Permalink to this headline">¶</a></h3>
+<p>If you have a standalone installation of geth, importing your presale wallet is accomplished by executing the following command in a terminal:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth wallet import /path/to/my/presale-wallet.json
+</pre></div>
+</div>
+<p>You will be prompted to enter your password.</p>
+</div>
+</div>
+<div class="section" id="updating-an-account">
+<h2>Updating an account<a class="headerlink" href="#updating-an-account" title="Permalink to this headline">¶</a></h2>
+<p>You are able to upgrade your keyfile to the latest keyfile format and/or upgrade your keyfile password.</p>
+<div class="section" id="id5">
+<h3>Using geth<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>You can update an existing account on the command line with the <code class="docutils literal notranslate"><span class="pre">update</span></code> subcommand with the account address or index as parameter. Remember that the account index reflects the order of creation (lexicographic order of keyfile names containing the creation time).</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth account update b0047c606f3af7392e073ed13253f8f4710b08b6
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth account update <span class="m">2</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>$ geth account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
+
+Unlocking account a94f5374fce5edbc8e2a8697c15331677e6ebf0b <span class="p">|</span> Attempt <span class="m">1</span>/3
+Passphrase:
+0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
+account <span class="s1">&#39;a94f5374fce5edbc8e2a8697c15331677e6ebf0b&#39;</span> unlocked.
+Please give a new password. Do not forget this password.
+Passphrase:
+Repeat Passphrase:
+0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
+</pre></div>
+</div>
+<p>The account is saved in the newest version in encrypted format, you are prompted for a passphrase to unlock the account and another to save the updated file. This same command can be used to migrate an account of a deprecated format to the newest format or change the password for an account.</p>
+<p>For non-interactive use the passphrase can be specified with the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth --password &lt;passwordfile&gt; account update a94f5374fce5edbc8e2a8697c15331677e6ebf0bs
+</pre></div>
+</div>
+<p>Since only one password can be given, only format update can be performed, changing your password is only possible interactively.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">account update has the side effect that the order of your accounts may change. After a successful update, all previous formats/versions of that same key will be removed!</p>
+</div>
+</div>
+</div>
+<div class="section" id="backup-and-restore-accounts">
+<span id="id6"></span><h2>Backup and restore accounts<a class="headerlink" href="#backup-and-restore-accounts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manual-backup-restore">
+<h3>Manual backup/restore<a class="headerlink" href="#manual-backup-restore" title="Permalink to this headline">¶</a></h3>
+<p>You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Ethereum node’s data directory. The default data directory locations are platform specific:</p>
+<ul class="simple">
+<li>Windows: <code class="docutils literal notranslate"><span class="pre">%appdata%\Ethereum\keystore</span></code></li>
+<li>Linux: <code class="docutils literal notranslate"><span class="pre">~/.ethereum/keystore</span></code></li>
+<li>Mac: <code class="docutils literal notranslate"><span class="pre">~/Library/Ethereum/keystore</span></code></li>
+</ul>
+<p>To backup your keyfiles (accounts), copy either the individual keyfiles within the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory or copy the entire <code class="docutils literal notranslate"><span class="pre">keystore</span></code> folder.</p>
+<p>To restore your keyfiles (accounts), copy the keyfiles back into the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory, where they were originally.</p>
+</div>
+<div class="section" id="importing-an-unencrypted-private-key">
+<h3>Importing an unencrypted private key<a class="headerlink" href="#importing-an-unencrypted-private-key" title="Permalink to this headline">¶</a></h3>
+<p>Importing an unencrypted private key is supported by <code class="docutils literal notranslate"><span class="pre">geth</span></code></p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth account import /path/to/&lt;keyfile&gt;
+</pre></div>
+</div>
+<p>This command imports an unencrypted private key from the plain text file <code class="docutils literal notranslate"><span class="pre">&lt;keyfile&gt;</span></code> and creates a new account and prints the address.
+The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex.
+The account is saved in encrypted format, you are prompted for a passphrase. You must remember this passphrase to unlock your account in the future.</p>
+<p>An example where the data directory is specified. If the <code class="docutils literal notranslate"><span class="pre">--datadir</span></code> flag is not used, the new account will be created in the default data directory, i.e., the keyfile will be placed in the <code class="docutils literal notranslate"><span class="pre">keystore</span></code> subdirectory of the data directory.</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>$ geth --datadir /someOtherEthDataDir  account import ./key.prv
+The new account will be encrypted with a passphrase.
+Please enter a passphrase now.
+Passphrase:
+Repeat Passphrase:
+Address: <span class="o">{</span>7f444580bfef4b9bc7e14eb7fb2a029336b07c9d<span class="o">}</span>
+</pre></div>
+</div>
+<p>For non-interactive use the passphrase can be specified with the <code class="docutils literal notranslate"><span class="pre">--password</span></code> flag:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>geth --password &lt;passwordfile&gt; account import &lt;keyfile&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since you can directly copy your encrypted accounts to another Ethereum instance, this import/export mechanism is not needed when you transfer an account between nodes.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When you copy keys into an existing node’s <code class="docutils literal notranslate"><span class="pre">keystore</span></code>, the order of accounts you are used to may change. Therefore you make sure you either do not rely on the account order or double-check and update the indexes used in your scripts.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mining.html" class="btn btn-neutral float-right" title="Mining" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="connecting-to-clients/web3.py/index.html" class="btn btn-neutral" title="web3.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Wanchain community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

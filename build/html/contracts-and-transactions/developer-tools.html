@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dapps &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Contracts and Transactions" href="index.html"/>
+        <link rel="next" title="Ethereum Tests" href="ethereum-tests/index.html"/>
+        <link rel="prev" title="Code Editor" href="mix/codeeditor.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ethereum-clients/index.html">Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mining.html">Mining</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contracts and Transactions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account-types-gas-and-transactions.html">Account Types, Gas, and Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing-contracts-and-transactions.html">Accessing Contracts and Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mix.html">Mix</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dapps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dapp-directories">Dapp directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dapp-browsers">Dapp browsers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-tools">Developer Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dapp-development-resources">Dapp development resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tutorials">Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mix-ide">Mix-IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ides-frameworks">IDEs/Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethereum-console">Ethereum-console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#base-layer-services">Base layer services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#whisper">Whisper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swarm">Swarm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethereum-alarm-clock">Ethereum Alarm Clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethereum-computation-market">Ethereum Computation Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#btcrelay">BTCRelay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#randao">RANDAO</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-evm">The EVM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ethereum-tests/index.html">Ethereum Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web3-base-layer-services.html">Web3 Base Layer Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Contracts and Transactions</a> &raquo;</li>
+        
+      <li>Dapps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/contracts-and-transactions/developer-tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dapps">
+<span id="id1"></span><h1>Dapps<a class="headerlink" href="#dapps" title="Permalink to this headline">¶</a></h1>
+<p>A dapp is a service that enables direct interaction between end users and providers (e.g. connecting buyers and sellers in some marketplace, owners and storers in file storage). Ethereum dapps typically interface users via an HTML/Javascript web application using a Javascript API to communicate with the blockchain. Dapps would typically have their own suite of associated contracts on the blockchain which they use to encode business logic and allow persistent storage of their consensus-critical state. Remember that because of the redundant nature of computation on the Ethereum network, the gas costs of execution will always be higher than private execution offchain. This incentivizes dapp developers to restrict the amount of code they execute and amount of data they store on the blockchain.</p>
+<div class="section" id="dapp-directories">
+<h2>Dapp directories<a class="headerlink" href="#dapp-directories" title="Permalink to this headline">¶</a></h2>
+<p>Dapps that use Ethereum are compiled to the following lists. They are listed in various stages of development (concept, working prototype, live/deployed). If you are developing a dapp, consider adding an entry to these listings:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://dapps.ethercasts.com/">Ethercasts State of the Ðapps</a></li>
+</ul>
+<p>The offered decentralised services listed cover a wide range of areas including finance, insurance, prediction markets, social networks, distributed computation and storage, gambling, marketplace, internet of things, governance, collaboration, development and games.</p>
+<ul class="simple">
+<li>What apps can we eventually expect? <a class="reference external" href="https://www.reddit.com/r/ethereum/comments/2mnl7f/the_top_10_ether_dapps_of_2015/cm63nsf">https://www.reddit.com/r/ethereum/comments/2mnl7f/the_top_10_ether_dapps_of_2015/cm63nsf</a></li>
+</ul>
+<p>In the future, dapps are likely to be listed and distributed in dappstores integrated in dapp browsers.</p>
+</div>
+<div class="section" id="dapp-browsers">
+<h2>Dapp browsers<a class="headerlink" href="#dapp-browsers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ethereum/mist">Mist</a> - official GUI dapp browser developed by the foundation, alpha stage. Mist as Wallet dapp is in beta.</li>
+<li><a class="reference external" href="https://status.im/">Status</a> - Mobile Ethereum browser (alpha)</li>
+<li><a class="reference external" href="https://metamask.io/">MetaMask</a> - Aaron Kumavis Davis’s in-browser GUI. <a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3x97rg/aaron_davis_explains_the_differences_between/">Epicenter Bitcoin interview on github</a> - supported by DEVgrants</li>
+<li><a class="reference external" href="https://github.com/ethereum/alethzero">AlethZero</a> - C++ eth client GUI, (discontinued).</li>
+<li><a class="reference external" href="http://www.supernove.cc">Supernova</a> - (discontinued).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="developer-tools">
+<h1>Developer Tools<a class="headerlink" href="#developer-tools" title="Permalink to this headline">¶</a></h1>
+<p>Dapp development requires an understanding of the Web3 Javascript API, the JSON RPC API, and the Solidity programming language.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are developer tools that help you develop, test, and deploy dapps in a way that automatically utilizes the resources listed below.</p>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScript-API">Web3 JavaScript API</a> - This is the main JavaScript SDK to use when you want to interact with an Ethereum node.</li>
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/JSON-RPC">JSON RPC API</a> - This is the low level JSON RPC 2.0 interface to interface with a node. This API is used by the <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScript-API">Web3 JavaScript API</a>.</li>
+<li><a class="reference external" href="https://solidity.readthedocs.org/en/latest/">Solidity Docs</a> -
+Solidity is the Ethereum developed Smart Contract language, which compiles to EVM (Ethereum Virtual Machine) opcodes.</li>
+<li><a class="reference external" href="https://github.com/duaraghav8/Solium/">Solium</a> -
+Linter to identify and fix style and security issues in Solidity.</li>
+<li><a class="reference external" href="https://github.com/protofire/solhint/">Solhint</a> -
+Solidity linter that provides security, style guide and best practice rules for smart contract validation.</li>
+<li><a class="reference internal" href="../network/test-networks.html#test-networks"><span class="std std-ref">Test Networks</span></a> - Test networks help developers develop and test Ethereum code and network interactions without spending their own ether on the main network. Test network options are listed below.</li>
+<li><a class="reference internal" href="#ide-or-development-framework"><span class="std std-ref">Dapp development resources</span></a>. This assists you in developing,
+debugging, and deploying Ethereum applications.</li>
+</ul>
+<div class="section" id="dapp-development-resources">
+<span id="ide-or-development-framework"></span><h2>Dapp development resources<a class="headerlink" href="#dapp-development-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/2cbwak/ethereum_contracts_please_eli5/">Smart contracts ELI5</a></li>
+<li><a class="reference external" href="https://blog.slock.it/a-primer-to-the-decentralized-autonomous-organization-dao-69fb125bd3cd">https://blog.slock.it/a-primer-to-the-decentralized-autonomous-organization-dao-69fb125bd3cd</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/44vs8b/a_101_noob_intro_to_programming_smart_contracts/">A 101 noob’s intro to programming smart contracts</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3k3jha/reminder_standardized_contract_apis_listing/">Standardised contract APIs listing</a></li>
+</ul>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/larspensjo/ffd2e4d41f739dc5af54">example use of pricefeed - web3 script printing all account balances</a></li>
+<li><a class="reference external" href="https://github.com/drupalnomad/ethereum-contracts">Example Ethereum contracts</a></li>
+</ul>
+<p><a class="reference external" href="https://dappsforbeginners.wordpress.com/tutorials/your-first-dapp/">https://dappsforbeginners.wordpress.com/tutorials/your-first-dapp/</a></p>
+<p><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Dapp-Developer-Resources">https://github.com/ethereum/wiki/wiki/Dapp-Developer-Resources</a></p>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://ethereum.org">Dapp tutorials on ethereum.org</a></li>
+<li><a class="reference external" href="https://dappsforbeginners.wordpress.com/">Dapps for beginners tutorial series</a></li>
+<li><a class="reference external" href="https://docs.erisindustries.com/tutorials/solidity/">Eris’ Solidity Tutorial Series</a></li>
+<li><a class="reference external" href="https://github.com/androlo/solidity-workshop">Tutorials on advanced Solidity</a></li>
+<li><a class="reference external" href="http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/">http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/</a></li>
+<li><a class="reference external" href="https://github.com/ConsenSys/ether-pudding">https://github.com/ConsenSys/ether-pudding</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mix-ide">
+<h2>Mix-IDE<a class="headerlink" href="#mix-ide" title="Permalink to this headline">¶</a></h2>
+<p>Mix is the official Ethereum IDE that allows developers to build and deploy contracts and decentralized applications on top of the Ethereum blockchain. It includes a Solidity source code debugger.
+<a class="reference internal" href="mix.html#sec-mix"><span class="std std-ref">Mix</span></a> (discontinued)</p>
+</div>
+<div class="section" id="ides-frameworks">
+<h2>IDEs/Frameworks<a class="headerlink" href="#ides-frameworks" title="Permalink to this headline">¶</a></h2>
+<p>Below are developer frameworks and IDEs used for writing Ethereum dapps.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ConsenSys/truffle">Truffle</a> - Truffle is a development environment, testing framework and asset pipeline for Ethereum.</li>
+<li><a class="reference external" href="https://github.com/nexusdev/dapple">Dapple</a> - Dapple is a tool for Solidity developers to help build and manage complex contract systems on Ethereum-like blockchains.</li>
+<li><a class="reference external" href="http://populus.readthedocs.org/en/latest/">Populus</a> - Populus is a Smart Contract development framework written in python.</li>
+<li><a class="reference external" href="https://docs.erisindustries.com/documentation/eris-package-manager/">Eris-PM</a> - The Eris Package Manager deploys and tests smart contract systems on private and public chains.</li>
+<li><a class="reference external" href="https://iurimatias.github.io/embark-framework/">Embark</a> - Embark is a Ðapp development framework written in JavaScript.</li>
+<li><a class="reference external" href="http://etherscripter.com/0-5-1/">EtherScripter (obsolete, discontinued)</a></li>
+<li><a class="reference external" href="https://github.com/resilience-me/broadcaster/">Resilience Raw Transaction Broadcaster</a></li>
+</ul>
+</div>
+<div class="section" id="ethereum-console">
+<h2>Ethereum-console<a class="headerlink" href="#ethereum-console" title="Permalink to this headline">¶</a></h2>
+<p>Command-line console for Ethereum nodes.</p>
+<p><a class="reference external" href="https://github.com/ethereum/ethereum-console">Ethconsole</a> connects to an Ethereum node running in the background (tested with eth and geth) via IPC and provides an interactive javascript console containing the web3 object with admin additions.</p>
+<p>Here you could find a list of available commands <a class="reference external" href="https://github.com/ethereum/ethereum-console/blob/master/web3Admin.js">ethereum node control commands</a></p>
+<p>To use this console you would need to start a local ethereum node with ipc communication socket enabled (file <code class="docutils literal notranslate"><span class="pre">geth.ipc</span></code> in data directory).
+By default ipc socket should be located at you local home directory in .ethereum after you started a node.
+You could also set <code class="docutils literal notranslate"><span class="pre">--test</span></code> option to use specific node test commands.</p>
+<div class="code Console highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">eth</span> <span class="o">--</span><span class="n">test</span>
+<span class="o">&gt;</span> <span class="n">ethconsole</span> <span class="n">ipc</span><span class="p">:</span><span class="o">//</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">geth</span><span class="o">.</span><span class="n">ipc</span>
+</pre></div>
+</div>
+<p>In the console you could then type</p>
+<div class="code Console highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">eth</span><span class="o">.&lt;</span><span class="n">command</span> <span class="n">name</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span>
+</pre></div>
+</div>
+<p>Here the defenition of <code class="docutils literal notranslate"><span class="pre">--test</span></code> mode node commands:</p>
+<div class="code Console highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">addBlock</span><span class="p">(</span><span class="s2">&quot;[RLP]&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span> <span class="o">-</span> <span class="n">Add</span> <span class="n">a</span> <span class="n">block</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">string</span> <span class="n">containing</span> <span class="n">its</span> <span class="nb">hex</span> <span class="n">RLP</span>
+<span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">rewindToBlock</span><span class="p">:(</span><span class="s2">&quot;[int]&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span> <span class="o">-</span> <span class="n">Reset</span> <span class="n">the</span> <span class="n">blockchain</span> <span class="n">to</span> <span class="n">specified</span> <span class="n">block</span> <span class="n">number</span>
+<span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">mineBlocks</span><span class="p">:(</span><span class="s2">&quot;[int]&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span> <span class="o">-</span> <span class="n">Mine</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">NoProof</span> <span class="n">blocks</span> <span class="n">into</span> <span class="n">chain</span>
+<span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">modifyTimestamp</span><span class="p">:(</span><span class="s2">&quot;[int]&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span> <span class="o">-</span> <span class="n">Set</span> <span class="n">current</span> <span class="n">block</span> <span class="n">timestamp</span>
+<span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">setChainParams</span><span class="p">:(</span><span class="s2">&quot;[json]&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">(){})</span> <span class="o">-</span> <span class="n">Reset</span> <span class="n">the</span> <span class="n">blockchain</span> <span class="k">with</span> <span class="n">given</span> <span class="n">node</span> <span class="n">configuration</span> <span class="n">file</span>
+</pre></div>
+</div>
+<p>More information about node <a class="reference external" href="../network/test-networks.html#custom-networks-eth">configuration</a> file.</p>
+</div>
+<div class="section" id="base-layer-services">
+<h2>Base layer services<a class="headerlink" href="#base-layer-services" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="whisper">
+<h3>Whisper<a class="headerlink" href="#whisper" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://ethereum.stackexchange.com/questions/127/what-is-whisper-and-what-is-it-used-for">What is Whisper and what is it used for</a> - stackexchange Q&amp;A</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=U_nPoBVLPiw">Gavin Wood: Shh! Whisper</a> - DEVCON-1 talk youtube video</li>
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Whisper-Overview">Whisper overview and dream API usage</a> -</li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/2xzm5w/whisper_explain_to_me_like_im_5/">ELI5</a></li>
+</ul>
+</div>
+<div class="section" id="swarm">
+<h3>Swarm<a class="headerlink" href="#swarm" title="Permalink to this headline">¶</a></h3>
+<p>Swarm is a distributed storage platform and content distribution service, a native base layer service of the Ethereum web 3 stack. The primary objective of Swarm is to provide a sufficiently decentralized and redundant store of Ethereum’s public record, in particular to store and distribute dapp code and data as well as block chain data. From an economic point of view, it allows participants to efficiently pool their storage and bandwidth resources in order to provide the aforementioned services to all participants.</p>
+<p>From the end user’s perspective, Swarm is not that different from WWW, except that uploads are not to a specific server. The objective is to peer-to-peer storage and serving solution that is DDOS-resistant, zero-downtime, fault-tolerant and censorship-resistant as well as self-sustaining due to a built-in incentive system which uses peer to peer accounting and allows trading resources for payment. Swarm is designed to deeply integrate with the devp2p multiprotocol network layer of Ethereum as well as with the Ethereum blockchain for domain name resolution, service payments and content availability insurance.</p>
+<div class="section" id="vcon-talks-on-swarm">
+<h4>ÐΞVcon talks on swarm<a class="headerlink" href="#vcon-talks-on-swarm" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://www.youtube.com/watch?v=VOC45AgZG5Q">Viktor Trón, Daniel A. Nagy: Swarm</a> - Ethereum ÐΞVcon-1 talk on youtube</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=QzYZQ03ON2o&amp;list=PLJqWcTqh_zKEjpSej3ddtDOKPRGl_7MhS">Daniel A. Nagy: Keeping the Public Record Safe and Accessible</a> - Ethereum ÐΞVcon-0 talk on youtube</li>
+</ul>
+</div>
+<div class="section" id="code-and-status">
+<h4>Code and status<a class="headerlink" href="#code-and-status" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>[source](<a class="reference external" href="https://github.com/ethereum/go-ethereum/tree/swarm">https://github.com/ethereum/go-ethereum/tree/swarm</a>)</li>
+<li>[issues on github](<a class="reference external" href="https://github.com/ethereum/go-ethereum/labels/swarm">https://github.com/ethereum/go-ethereum/labels/swarm</a>)</li>
+<li>[development roadmap]()</li>
+<li><a class="reference external" href="https://twitter.com/ethersphere">ethersphere on twitter</a></li>
+<li><a class="reference external" href="https://gitter.im/ethereum/swarm">swarm gitter room</a></li>
+<li><a class="reference external" href="https://reddit.com/r/bzz">swarm subreddit</a></li>
+</ul>
+<p>Storage on and offchain</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3hkv2f/eli5_storage_in_the_ethereum_blockchain/">https://www.reddit.com/r/ethereum/comments/3hkv2f/eli5_storage_in_the_ethereum_blockchain/</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3npsoz/ethereum_ipfs_and_filecoin/">https://www.reddit.com/r/ethereum/comments/3npsoz/ethereum_ipfs_and_filecoin/</a></li>
+<li><a class="reference external" href="https://ethereum.stackexchange.com/questions/375/what-is-swarm-and-what-is-it-used-for">What is swarm and what is it used for?</a>  - stackexchange Q&amp;A</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ethereum-alarm-clock">
+<h3>Ethereum Alarm Clock<a class="headerlink" href="#ethereum-alarm-clock" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Author:</strong> Piper Merriam</li>
+<li><strong>Website:</strong> <a class="reference external" href="http://www.ethereum-alarm-clock.com/">alarm_main_website</a>.</li>
+<li><strong>Documentation:</strong> <a class="reference external" href="http://docs.ethereum-alarm-clock.com/">alarm_documentation</a>.</li>
+</ul>
+<p>A marketplace that facilitates scheduling transactions to occur at a later
+time.  Serves a similar role to things like <em>crontab</em> in unix, or <em>setTimeout</em>
+in javascript.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/karalabe/0ab4d715a81b74dd257d">Decentralized cron service in Ethereum proposal</a> - by Peter Szilagyi</li>
+</ul>
+</div>
+<div class="section" id="ethereum-computation-market">
+<h3>Ethereum Computation Market<a class="headerlink" href="#ethereum-computation-market" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Author:</strong> Piper Merriam</li>
+<li><strong>Website:</strong> <a class="reference external" href="http://www.ethereum-computation-market.com/">computation_market_main_website</a>.</li>
+<li><strong>Documentation:</strong> <a class="reference external" href="http://docs.ethereum-computation-market.com/">computation_market_documentation</a>.</li>
+</ul>
+<p>A marketplace that facilitates verifiable execution of computations off-chain.
+Allows for very expernsive computations to be used within the EVM without
+having to actually pay the high gas costs of executing them on-chain.</p>
+</div>
+<div class="section" id="btcrelay">
+<h3>BTCRelay<a class="headerlink" href="#btcrelay" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><a class="reference external" href="http://btcrelay.org/">BTCrelay</a></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://medium.com/&#64;ConsenSys/taking-stock-bitcoin-and-ethereum-4382f0a2f17">More information</a> (about ETH/BTC 2-way peg without modifying bitcoin code).</li>
+<li><a class="reference external" href="http://martin.swende.se/blog/BTCRelay-Auditing.html">BTCrelay audit</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="randao">
+<h3>RANDAO<a class="headerlink" href="#randao" title="Permalink to this headline">¶</a></h3>
+<p>Random number
+* <a class="reference external" href="https://www.reddit.com/r/ethereum/comments/49yld7/eli5_how_does_a_service_like_szabodice_grab_a/">https://www.reddit.com/r/ethereum/comments/49yld7/eli5_how_does_a_service_like_szabodice_grab_a/</a></p>
+</div>
+</div>
+<div class="section" id="the-evm">
+<span id="id3"></span><h2>The EVM<a class="headerlink" href="#the-evm" title="Permalink to this headline">¶</a></h2>
+<p>The Ethereum Virtual Machine (EVM) is the runtime environment for smart contracts in Ethereum. It is not only sandboxed, but actually completely isolated, which means that code running inside the EVM has no access to network, filesystem, or other processes. Smart contracts even have limited access to other smart contracts.</p>
+<p>Contracts live on the blockchain in an Ethereum-specific binary format (EVM bytecode). However, contracts are typically written in an Ethereum high level language, compiled into byte code using an EVM compiler, and finally uploaded on the blockchain using an Ethereum client.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ethereum-tests/index.html" class="btn btn-neutral float-right" title="Ethereum Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mix/codeeditor.html" class="btn btn-neutral" title="Code Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

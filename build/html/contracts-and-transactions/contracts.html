@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contracts &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Contracts and Transactions" href="index.html"/>
+        <link rel="next" title="Accessing Contracts and Transactions" href="accessing-contracts-and-transactions.html"/>
+        <link rel="prev" title="Account Types, Gas, and Transactions" href="account-types-gas-and-transactions.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ethereum-clients/index.html">Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mining.html">Mining</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contracts and Transactions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="account-types-gas-and-transactions.html">Account Types, Gas, and Transactions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contracts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-contract">What is a contract?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethereum-high-level-languages">Ethereum high level languages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Solidity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serpent">Serpent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">LLL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mutan-deprecated">Mutan (deprecated)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-a-contract">Writing a contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-a-contract">Compiling a contract</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-solidity-compiler-in-geth">Setting up the solidity compiler in geth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-a-simple-contract">Compiling a simple contract</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-deploy-a-contract">Create and deploy a contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interacting-with-a-contract">Interacting with a contract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contract-metadata">Contract metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-contracts-and-transactions">Testing contracts and transactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accessing-contracts-and-transactions.html">Accessing Contracts and Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mix.html">Mix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-tools.html">Dapps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-tools.html#developer-tools">Developer Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethereum-tests/index.html">Ethereum Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web3-base-layer-services.html">Web3 Base Layer Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Contracts and Transactions</a> &raquo;</li>
+        
+      <li>Contracts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/contracts-and-transactions/contracts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contracts">
+<span id="id1"></span><h1>Contracts<a class="headerlink" href="#contracts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-contract">
+<h2>What is a contract?<a class="headerlink" href="#what-is-a-contract" title="Permalink to this headline">¶</a></h2>
+<p>A contract is a collection of code (its functions) and data (its state) that
+resides at a specific address on the Ethereum blockchain. Contract accounts are
+able to pass messages between themselves as well as doing practically Turing
+complete computation. Contracts live on the blockchain in a Ethereum-specific
+binary format called Ethereum Virtual Machine (EVM) bytecode.</p>
+<p>Contracts are typically written in some high level language such as <a class="reference external" href="https://solidity.readthedocs.org/en/latest/">Solidity</a> and then compiled into bytecode
+to be uploaded on the blockchain.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Other languages also exist, notably Serpent and LLL, which are described further in the <a class="reference internal" href="#ethereum-high-level-languages"><span class="std std-ref">Ethereum high level languages</span></a> section of this documentation.</p>
+</div>
+<p><a class="reference internal" href="developer-tools.html#ide-or-development-framework"><span class="std std-ref">Dapp development resources</span></a> lists the integrated development environments, developer tools that help you develop in these languages, offering testing, and deployment support among other features.</p>
+</div>
+<div class="section" id="ethereum-high-level-languages">
+<span id="id2"></span><h2>Ethereum high level languages<a class="headerlink" href="#ethereum-high-level-languages" title="Permalink to this headline">¶</a></h2>
+<p>Contracts live on the blockchain in an Ethereum-specific binary format (EVM bytecode) that is executed by the Ethereum Virtual Machine (EVM). However, contracts are typically written in a higher level language and then compiled using the EVM compiler into byte code to be deployed to the blockchain.</p>
+<p>Below are the different high level languages developers can use to write smart contracts for Ethereum.</p>
+<div class="section" id="id3">
+<h3>Solidity<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Solidity is a language similar to JavaScript which allows you to develop contracts and compile to EVM bytecode. It is currently the flagship language of Ethereum and the most popular.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://solidity.readthedocs.org/en/latest/">Solidity Documentation</a> - Solidity is the flagship Ethereum high level language that is used to write contracts.</li>
+<li><a class="reference external" href="http://ethereum.github.io/browser-solidity/">Solidity online realtime compiler</a></li>
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs">Standardized Contract APIs</a></li>
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Useful-Ðapp-Patterns">Useful Ðapp Patterns</a> - Code snippets which are useful for Ðapp development.</li>
+</ul>
+</div>
+<div class="section" id="serpent">
+<h3>Serpent<a class="headerlink" href="#serpent" title="Permalink to this headline">¶</a></h3>
+<p>Serpent is a language similar to Python which can be used to develop contracts and compile to EVM bytecode. It is intended to be maximally clean and simple, combining many of the efficiency benefits of a low-level language with ease-of-use in programming style, and at the same time adding special domain-specific features for contract programming. Serpent is compiled using <span class="target" id="lll">LLL</span>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Serpent">Serpent on the ethereum wiki</a></li>
+<li><a class="reference external" href="https://github.com/ethereum/serpent">Serpent EVM compiler</a></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>LLL<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/ethereum/libethereum/tree/develop/liblll">Lisp Like Language (LLL)</a> is a low level language similar to Assembly. It is meant to be very simple and minimalistic; essentially just a tiny wrapper over coding in EVM directly.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ethereum/libethereum/tree/develop/liblll">LIBLLL in GitHub</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3secu1/anyone_have_a_copy_of_the_old_lll_tutorials/">Examples of LLL</a></li>
+</ul>
+</div>
+<div class="section" id="mutan-deprecated">
+<h3>Mutan (deprecated)<a class="headerlink" href="#mutan-deprecated" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/obscuren/mutan">Mutan</a> is a statically typed, C-like language designed and developed by Jeffrey Wilcke. It is no longer maintained.</p>
+</div>
+</div>
+<div class="section" id="writing-a-contract">
+<h2>Writing a contract<a class="headerlink" href="#writing-a-contract" title="Permalink to this headline">¶</a></h2>
+<p>No language would be complete without a Hello World program. Operating within
+the Ethereum environment, Solidity has no obvious way of “outputting” a string.
+The closest we can do is to use a <em>log event</em> to place a string into the
+blockchain:</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contract</span> <span class="n">HelloWorld</span> <span class="p">{</span>
+        <span class="n">event</span> <span class="n">Print</span><span class="p">(</span><span class="n">string</span> <span class="n">out</span><span class="p">);</span>
+        <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="n">Print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This contract will create a log entry on the blockchain of type Print with a
+parameter “Hello, World!” each time it is executed.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://solidity.readthedocs.org/en/latest/">Solidity docs</a> has more examples and guidelines to writing Solidity code.</p>
+</div>
+</div>
+<div class="section" id="compiling-a-contract">
+<h2>Compiling a contract<a class="headerlink" href="#compiling-a-contract" title="Permalink to this headline">¶</a></h2>
+<p>Compilation of solidity contracts can be accomplished via a number of
+mechanisms.</p>
+<ul class="simple">
+<li>Using the <code class="docutils literal notranslate"><span class="pre">solc</span></code> compiler via the command line.</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">web3.eth.compile.solidity</span></code> in the javascript console provided by
+<code class="docutils literal notranslate"><span class="pre">geth</span></code> or <code class="docutils literal notranslate"><span class="pre">eth</span></code> (This still requires the <code class="docutils literal notranslate"><span class="pre">solc</span></code> compiler to be
+installed).</li>
+<li>The <a class="reference external" href="https://ethereum.github.io/browser-solidity/">online Solidity realtime compiler</a>.</li>
+<li>The <a class="reference external" href="https://github.com/SilentCicero/meteor-dapp-cosmo">Meteor dapp Cosmo for building solidity contracts</a>.</li>
+<li>The <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Mix:-The-DApp-IDE">Mix IDE</a>.</li>
+<li>The <a class="reference external" href="https://github.com/ethereum/mist/releases">Ethereum Wallet</a>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">More information on solc and compiling Solidity contract code can be found <a class="reference external" href="https://solidity.readthedocs.org/en/latest/frequently-asked-questions.html#how-do-i-compile-contracts">here</a>.</p>
+</div>
+<div class="section" id="setting-up-the-solidity-compiler-in-geth">
+<h3>Setting up the solidity compiler in geth<a class="headerlink" href="#setting-up-the-solidity-compiler-in-geth" title="Permalink to this headline">¶</a></h3>
+<p>If you start up your <code class="docutils literal notranslate"><span class="pre">geth</span></code> node, you can check which compilers are
+available.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">web3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">getCompilers</span><span class="p">();</span>
+<span class="p">[</span><span class="s2">&quot;lll&quot;</span><span class="p">,</span> <span class="s2">&quot;solidity&quot;</span><span class="p">,</span> <span class="s2">&quot;serpent&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This command returns an array of strings indicating which compilers are
+currently available.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">solc</span></code> compiler is installed with <code class="docutils literal notranslate"><span class="pre">cpp-ethereum</span></code>.  Alternatively,
+you can <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum">build it yourself</a>.</p>
+</div>
+<p>If your <code class="docutils literal notranslate"><span class="pre">solc</span></code> executable is in a non-standard location you can specify a
+custom path to the <code class="docutils literal notranslate"><span class="pre">solc</span></code> executable using th <code class="docutils literal notranslate"><span class="pre">--solc</span></code> flag.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ geth --solc /usr/local/bin/solc
+</pre></div>
+</div>
+<p>Alternatively, you can set this option at runtime via the console:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">admin</span><span class="o">.</span><span class="n">setSolc</span><span class="p">(</span><span class="s2">&quot;/usr/local/bin/solc&quot;</span><span class="p">)</span>
+<span class="n">solc</span><span class="p">,</span> <span class="n">the</span> <span class="n">solidity</span> <span class="n">compiler</span> <span class="n">commandline</span> <span class="n">interface</span>
+<span class="n">Version</span><span class="p">:</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="mi">02</span><span class="n">bb315d</span><span class="o">/.-</span><span class="n">Darwin</span><span class="o">/</span><span class="n">appleclang</span><span class="o">/</span><span class="n">JIT</span> <span class="n">linked</span> <span class="n">to</span> <span class="n">libethereum</span><span class="o">-</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">8007</span><span class="n">cef0</span><span class="o">/.-</span><span class="n">Darwin</span><span class="o">/</span><span class="n">appleclang</span><span class="o">/</span><span class="n">JIT</span>
+<span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">solc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compiling-a-simple-contract">
+<span id="compile-a-simple-contract"></span><h3>Compiling a simple contract<a class="headerlink" href="#compiling-a-simple-contract" title="Permalink to this headline">¶</a></h3>
+<p>Let’s compile a simple contract source:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;contract test { function multiply(uint a) returns(uint d) { return a * 7; } }&quot;</span>
+</pre></div>
+</div>
+<p>This contract offers a single method <strong>multiply</strong> which is called with a
+positive integer <code class="docutils literal notranslate"><span class="pre">a</span></code> and returns <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">7</span></code>.</p>
+<p>You are ready to compile solidity code in the <code class="docutils literal notranslate"><span class="pre">geth</span></code> JS console using
+<a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcompilesolidity">eth.compile.solidity()</a>:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">contract</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">compile</span><span class="o">.</span><span class="n">solidity</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">test</span>
+<span class="p">{</span>
+  <span class="n">code</span><span class="p">:</span> <span class="s1">&#39;605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056&#39;</span><span class="p">,</span>
+  <span class="n">info</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">language</span><span class="p">:</span> <span class="s1">&#39;Solidity&#39;</span><span class="p">,</span>
+    <span class="n">languageVersion</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+    <span class="n">compilerVersion</span><span class="p">:</span> <span class="s1">&#39;0.9.13&#39;</span><span class="p">,</span>
+    <span class="n">abiDefinition</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="n">constant</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="n">inputs</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;uint256&#39;</span>
+      <span class="p">}</span> <span class="p">],</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;multiply&#39;</span><span class="p">,</span>
+      <span class="n">outputs</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;uint256&#39;</span>
+      <span class="p">}</span> <span class="p">],</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;function&#39;</span>
+    <span class="p">}</span> <span class="p">],</span>
+    <span class="n">userDoc</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">developerDoc</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;contract test { function multiply(uint a) returns(uint d) { return a * 7; } }&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The compiler is also available via <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JSON-RPC">RPC</a> and therefore via
+<a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScriptAPI#web3ethcompilesolidity">web3.js</a> to any in-browser Ðapp connecting to
+<code class="docutils literal notranslate"><span class="pre">geth</span></code> via RPC/IPC.</p>
+</div>
+<p>The following example shows how you interface <code class="docutils literal notranslate"><span class="pre">geth</span></code> via JSON-RPC to
+use the compiler.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ geth --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain &#39;*&#39; --mine console  2&gt;&gt; ~/eth/eth.log
+$ curl -X POST --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_compileSolidity&quot;,&quot;params&quot;:[&quot;contract test { function multiply(uint a) returns(uint d) { return a * 7; } }&quot;],&quot;id&quot;:1}&#39; http://127.0.0.1:8100
+</pre></div>
+</div>
+<p>The compiler output for one source will give you contract objects each
+representing a single contract. The actual return value of
+<code class="docutils literal notranslate"><span class="pre">eth.compile.solidity</span></code> is a map of contract name to contract object pairs.
+Since our contract’s name is <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">eth.compile.solidity(source).test</span></code>
+will give you the contract object for the test contract containing the
+following fields:</p>
+<dl class="glossary docutils">
+<dt id="term-code"><code class="docutils literal notranslate"><span class="pre">code</span></code></dt>
+<dd>The compiled EVM bytecode</dd>
+<dt id="term-info"><code class="docutils literal notranslate"><span class="pre">info</span></code></dt>
+<dd>Additional metadata output from the compiler</dd>
+<dt id="term-source"><code class="docutils literal notranslate"><span class="pre">source</span></code></dt>
+<dd>The source code</dd>
+<dt id="term-language"><code class="docutils literal notranslate"><span class="pre">language</span></code></dt>
+<dd>The contract language (Solidity, Serpent, LLL)</dd>
+<dt id="term-languageversion"><code class="docutils literal notranslate"><span class="pre">languageVersion</span></code></dt>
+<dd>The contract language version</dd>
+<dt id="term-compilerversion"><code class="docutils literal notranslate"><span class="pre">compilerVersion</span></code></dt>
+<dd>The solidity compiler version that was used to compile this contract.</dd>
+<dt id="term-abidefinition"><code class="docutils literal notranslate"><span class="pre">abiDefinition</span></code></dt>
+<dd>The <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">Application Binary Interface Definition</a></dd>
+<dt id="term-userdoc"><code class="docutils literal notranslate"><span class="pre">userDoc</span></code></dt>
+<dd>The <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format">NatSpec Doc</a> for users.</dd>
+<dt id="term-developerdoc"><code class="docutils literal notranslate"><span class="pre">developerDoc</span></code></dt>
+<dd>The <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format">NatSpec Doc</a> for developers.</dd>
+</dl>
+<p>The immediate structuring of the compiler output (into <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">info</span></code>)
+reflects the two very different <strong>paths of deployment</strong>. The compiled EVM code
+is sent off to the blockchain with a contract creation transaction while the
+rest (info) will ideally live on the decentralised cloud as publicly verifiable
+metadata complementing the code on the blockchain.</p>
+<p>If your source contains multiple contracts, the output will contain an entry
+for each contract, the corresponding contract info object can be retrieved with
+the name of the contract as attribute name. You can try this by inspecting the
+most current GlobalRegistrar code:</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contracts</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">compile</span><span class="o">.</span><span class="n">solidity</span><span class="p">(</span><span class="n">globalRegistrarSrc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-and-deploy-a-contract">
+<h2>Create and deploy a contract<a class="headerlink" href="#create-and-deploy-a-contract" title="Permalink to this headline">¶</a></h2>
+<p>Before you begin this section, make sure you have both an unlocked account as
+well as some funds.</p>
+<p>You will now create a contract on the blockchain by <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction">sending a transaction</a> to the empty address with the EVM code from the previous section as data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This can be accomplished much easier using the <a class="reference external" href="https://ethereum.github.io/browser-solidity/">online Solidity realtime
+compiler</a> or the <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Mix:-The-DApp-IDE">Mix IDE</a> program.</p>
+</div>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">primaryAddress</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">var</span> <span class="n">abi</span> <span class="o">=</span> <span class="p">[{</span> <span class="n">constant</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;uint256&#39;</span> <span class="p">}</span> <span class="p">}]</span>
+<span class="n">var</span> <span class="n">MyContract</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">contract</span><span class="p">(</span><span class="n">abi</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">contract</span> <span class="o">=</span> <span class="n">MyContract</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="p">{</span><span class="n">from</span><span class="p">:</span> <span class="n">primaryAddress</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">evmByteCodeFromPreviousSection</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>All binary data is serialised in hexadecimal form. Hex strings always have a
+hex prefix <code class="docutils literal notranslate"><span class="pre">0x</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that <code class="docutils literal notranslate"><span class="pre">arg1,</span> <span class="pre">arg2,</span> <span class="pre">...</span></code> are the arguments for the contract
+constructor, in case it accepts any.  If the contract does not require any
+constructor arguments then these arguments can be omitted.</p>
+</div>
+<p>It is worth pointing out that this step requires you to pay for execution. Your
+balance on the account (that you put as sender in the <code class="docutils literal notranslate"><span class="pre">from</span></code> field) will be
+reduced according to the gas rules of the EVM once your transaction makes it
+into a block. After some time, your transaction should appear included in a
+block confirming that the state it brought about is a consensus. Your contract
+now lives on the blockchain.</p>
+<p>The asynchronous way of doing the same looks like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">MyContract</span><span class="p">.</span><span class="k">new</span><span class="p">([</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="p">...,]{</span><span class="nx">from</span><span class="o">:</span> <span class="nx">primaryAccount</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">evmCode</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">contract</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span> <span class="o">&amp;&amp;</span> <span class="nx">contract</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">contract</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interacting-with-a-contract">
+<span id="id7"></span><h2>Interacting with a contract<a class="headerlink" href="#interacting-with-a-contract" title="Permalink to this headline">¶</a></h2>
+<p>Interaction with a contract is typically done using an abstraction layer such
+as the <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcontract">eth.contract()</a>
+function which returns a javascript object with all of the contract functions
+available as callable functions in javascript.</p>
+<p>The standard way to describe the available functions of a contract is the <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">ABI
+definition</a>.
+This object is an array which describles the call signature and return values
+for each available contract function.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">Multiply7</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">contract</span><span class="p">(</span><span class="nx">contract</span><span class="p">.</span><span class="nx">info</span><span class="p">.</span><span class="nx">abiDefinition</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">myMultiply7</span> <span class="o">=</span> <span class="nx">Multiply7</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">address</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now all the function calls specified in the ABI are made available on the
+contract instance. You can just call those methods on the contract instance
+in one of two ways.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">myMultiply7</span><span class="p">.</span><span class="nx">multiply</span><span class="p">.</span><span class="nx">sendTransaction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="nx">from</span><span class="o">:</span> <span class="nx">address</span><span class="p">})</span>
+<span class="s2">&quot;0x12345&quot;</span>
+<span class="o">&gt;</span> <span class="nx">myMultiply7</span><span class="p">.</span><span class="nx">multiply</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">21</span>
+</pre></div>
+</div>
+<p>When called using <code class="docutils literal notranslate"><span class="pre">sendTransaction</span></code> the function call is executed via sending
+a transaction.  This will cost ether to send and the call will be recorded
+forever on the blockchain.  The return value of calls made in this manner is
+the hash of the transaction.</p>
+<p>When called using <code class="docutils literal notranslate"><span class="pre">call</span></code> the function is executed locally in the EVM and the
+return value of the function is returned with the function.  Calls made in this
+manner are not recorded on the blockchain and thus, cannot modify the internal
+state of the contract.  This manner of call is referred to as a <strong>constant</strong>
+function call.  Calls made in this manner do not cost any ether.</p>
+<p>You should use <code class="docutils literal notranslate"><span class="pre">call</span></code> if you are interested only in the return value and use
+<code class="docutils literal notranslate"><span class="pre">sendTransaction</span></code> if you only care about <em>side effects</em> on the state of the
+contract.</p>
+<p>In the example above, there are no side effects, therefore <code class="docutils literal notranslate"><span class="pre">sendTransaction</span></code>
+only burns gas and increases the entropy of the universe.</p>
+</div>
+<div class="section" id="contract-metadata">
+<h2>Contract metadata<a class="headerlink" href="#contract-metadata" title="Permalink to this headline">¶</a></h2>
+<p>In the previous sections we explained how you create a contract on the
+blockchain. Now we will deal with the rest of the compiler output, the
+<strong>contract metadata</strong> or contract info.</p>
+<p>When interacting with a contract you did not create you might want
+documentation or to look at the source code.  Contract authors are encouraged
+to make such information available by registering it on the blockchain or
+through a third party service, such as <a class="reference external" href="https://www.etherchain.org/contracts">EtherChain</a>. The <code class="docutils literal notranslate"><span class="pre">admin</span></code> API provides
+convenience methods to fetch this bundle for any contract that chose to
+register.</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">get</span> <span class="n">the</span> <span class="n">contract</span> <span class="n">info</span> <span class="k">for</span> <span class="n">contract</span> <span class="n">address</span> <span class="n">to</span> <span class="n">do</span> <span class="n">manual</span> <span class="n">verification</span>
+<span class="n">var</span> <span class="n">info</span> <span class="o">=</span> <span class="n">admin</span><span class="o">.</span><span class="n">getContractInfo</span><span class="p">(</span><span class="n">address</span><span class="p">)</span> <span class="o">//</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">fetch</span><span class="p">,</span> <span class="n">decode</span>
+<span class="n">var</span> <span class="n">source</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">source</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">abiDef</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">abiDefinition</span>
+</pre></div>
+</div>
+<p>The underlying mechanism that makes this work is is that:</p>
+<ul class="simple">
+<li>contract info is uploaded somewhere identifiable by a <em>URI</em> which
+is publicly accessible</li>
+<li>anyone can find out what the <em>URI</em> is only knowing the contracts
+address</li>
+</ul>
+<p>These requirements are achieved using a 2 step blockchain registry. The first
+step registers the contract code (hash) with a content hash in a contract
+called <code class="docutils literal notranslate"><span class="pre">HashReg</span></code>. The second step registers a url with the content hash in
+the <code class="docutils literal notranslate"><span class="pre">UrlHint</span></code> contract. These <a class="reference external" href="https://github.com/ethereum/go-ethereum/blob/develop/common/registrar/contracts.go">registry contracts</a>
+were part of the Frontier release and have carried on into Homestead.</p>
+<p>By using this scheme, it is sufficient to know a contract’s address to look up the url and fetch the actual contract metadata info bundle.</p>
+<p>So if you are a conscientious contract creator, the steps are the following:</p>
+<ol class="arabic simple">
+<li>Deploy the contract itself to the blockchain</li>
+<li>Get the contract info json file.</li>
+<li>Deploy contract info json file to any url of your choice</li>
+<li>Register codehash -&gt;content hash -&gt; url</li>
+</ol>
+<p>The JS API makes this process very easy by providing helpers. Call
+<code class="docutils literal notranslate"><span class="pre">admin.register</span></code> to extract info from the contract, write out its json
+serialisation in the given file, calculates the content hash of the file and
+finally registers this content hash to the contract’s code hash. Once you
+deployed that file to any url, you can use <code class="docutils literal notranslate"><span class="pre">admin.registerUrl</span></code> to register
+the url with your content hash on the blockchain as well. (Note that in case a
+fixed content addressed model is used as document store, the url-hint is no
+longer necessary.)</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">source</span> <span class="o">=</span> <span class="s2">&quot;contract test { function multiply(uint a) returns(uint d) { return a * 7; } }&quot;</span>
+<span class="c1">// compile with solc</span>
+<span class="nx">contract</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">compile</span><span class="p">.</span><span class="nx">solidity</span><span class="p">(</span><span class="nx">source</span><span class="p">).</span><span class="nx">test</span>
+<span class="c1">// create contract object</span>
+<span class="kd">var</span> <span class="nx">MyContract</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">contract</span><span class="p">(</span><span class="nx">contract</span><span class="p">.</span><span class="nx">info</span><span class="p">.</span><span class="nx">abiDefinition</span><span class="p">)</span>
+<span class="c1">// extracts info from contract, save the json serialisation in the given file,</span>
+<span class="nx">contenthash</span> <span class="o">=</span> <span class="nx">admin</span><span class="p">.</span><span class="nx">saveInfo</span><span class="p">(</span><span class="nx">contract</span><span class="p">.</span><span class="nx">info</span><span class="p">,</span> <span class="s2">&quot;~/dapps/shared/contracts/test/info.json&quot;</span><span class="p">)</span>
+<span class="c1">// send off the contract to the blockchain</span>
+<span class="nx">MyContract</span><span class="p">.</span><span class="k">new</span><span class="p">({</span><span class="nx">from</span><span class="o">:</span> <span class="nx">primaryAccount</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">contract</span><span class="p">.</span><span class="nx">code</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">contract</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">error</span> <span class="o">&amp;&amp;</span> <span class="nx">contract</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// calculates the content hash and registers it with the code hash in `HashReg`</span>
+    <span class="c1">// it uses address to send the transaction.</span>
+    <span class="c1">// returns the content hash that we use to register a url</span>
+    <span class="nx">admin</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">primaryAccount</span><span class="p">,</span> <span class="nx">contract</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span> <span class="nx">contenthash</span><span class="p">)</span>
+    <span class="c1">// here you deploy ~/dapps/shared/contracts/test/info.json to a url</span>
+    <span class="nx">admin</span><span class="p">.</span><span class="nx">registerUrl</span><span class="p">(</span><span class="nx">primaryAccount</span><span class="p">,</span> <span class="nx">hash</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing-contracts-and-transactions">
+<h2>Testing contracts and transactions<a class="headerlink" href="#testing-contracts-and-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Often you need to resort to a low level strategy of testing and debugging
+contracts and transactions. This section introduces some debug tools and
+practices you can use. In order to test contracts and transactions without
+real-word consequences, you best test it on a private blockchain. This can be
+achieved with configuring an alternative network id (select a unique integer)
+and/or disable peers. It is recommended practice that for testing you use an
+alternative data directory and ports so that you never even accidentally clash
+with your live running node (assuming that runs using the defaults. Starting
+your <code class="docutils literal notranslate"><span class="pre">geth</span></code> with in VM debug mode with profiling and highest logging
+verbosity level is recommended:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">geth</span> <span class="o">--</span><span class="n">datadir</span> <span class="o">~/</span><span class="n">dapps</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="mi">00</span><span class="o">/</span> <span class="o">--</span><span class="n">port</span> <span class="mi">30310</span> <span class="o">--</span><span class="n">rpcport</span> <span class="mi">8110</span> <span class="o">--</span><span class="n">networkid</span> <span class="mi">4567890</span> <span class="o">--</span><span class="n">nodiscover</span> <span class="o">--</span><span class="n">maxpeers</span> <span class="mi">0</span> <span class="o">--</span><span class="n">vmdebug</span> <span class="o">--</span><span class="n">verbosity</span> <span class="mi">6</span> <span class="o">--</span><span class="n">pprof</span> <span class="o">--</span><span class="n">pprofport</span> <span class="mi">6110</span> <span class="n">console</span> <span class="mi">2</span><span class="o">&gt;&gt;</span> <span class="o">~/</span><span class="n">dapp</span><span class="o">/</span><span class="n">testint</span><span class="o">/</span><span class="mi">00</span><span class="o">/</span><span class="mf">00.</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>Before you can submit any transactions, you need set up your private test
+chain. See <a class="reference internal" href="../network/test-networks.html#test-networks"><span class="std std-ref">Test Networks</span></a>.</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">create</span> <span class="n">account</span><span class="o">.</span> <span class="n">will</span> <span class="n">prompt</span> <span class="k">for</span> <span class="n">password</span>
+<span class="n">personal</span><span class="o">.</span><span class="n">newAccount</span><span class="p">();</span>
+<span class="o">//</span> <span class="n">name</span> <span class="n">your</span> <span class="n">primary</span> <span class="n">account</span><span class="p">,</span> <span class="n">will</span> <span class="n">often</span> <span class="n">use</span> <span class="n">it</span>
+<span class="n">primary</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="o">//</span> <span class="n">check</span> <span class="n">your</span> <span class="n">balance</span> <span class="p">(</span><span class="n">denominated</span> <span class="ow">in</span> <span class="n">ether</span><span class="p">)</span>
+<span class="n">balance</span> <span class="o">=</span> <span class="n">web3</span><span class="o">.</span><span class="n">fromWei</span><span class="p">(</span><span class="n">eth</span><span class="o">.</span><span class="n">getBalance</span><span class="p">(</span><span class="n">primary</span><span class="p">),</span> <span class="s2">&quot;ether&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">assume</span> <span class="n">an</span> <span class="n">existing</span> <span class="n">unlocked</span> <span class="n">primary</span> <span class="n">account</span>
+<span class="n">primary</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="o">//</span> <span class="n">mine</span> <span class="mi">10</span> <span class="n">blocks</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">ether</span>
+
+<span class="o">//</span> <span class="n">starting</span> <span class="n">miner</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">sleep</span> <span class="k">for</span> <span class="mi">10</span> <span class="n">blocks</span> <span class="p">(</span><span class="n">this</span> <span class="n">can</span> <span class="n">take</span> <span class="n">quite</span> <span class="n">some</span> <span class="n">time</span><span class="p">)</span><span class="o">.</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sleepBlocks</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">then</span> <span class="n">stop</span> <span class="n">mining</span> <span class="p">(</span><span class="n">just</span> <span class="ow">not</span> <span class="n">to</span> <span class="n">burn</span> <span class="n">heat</span> <span class="ow">in</span> <span class="n">vain</span><span class="p">)</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">stop</span><span class="p">();</span>
+<span class="n">balance</span> <span class="o">=</span> <span class="n">web3</span><span class="o">.</span><span class="n">fromWei</span><span class="p">(</span><span class="n">eth</span><span class="o">.</span><span class="n">getBalance</span><span class="p">(</span><span class="n">primary</span><span class="p">),</span> <span class="s2">&quot;ether&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>After you create transactions, you can force process them with the following lines:</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">miner</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sleepBlocks</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">stop</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>You can check your pending transactions with:</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">shows</span> <span class="n">transaction</span> <span class="n">pool</span>
+<span class="n">txpool</span><span class="o">.</span><span class="n">status</span>
+<span class="o">//</span> <span class="n">number</span> <span class="n">of</span> <span class="n">pending</span> <span class="n">txs</span>
+<span class="n">eth</span><span class="o">.</span><span class="n">getBlockTransactionCount</span><span class="p">(</span><span class="s2">&quot;pending&quot;</span><span class="p">);</span>
+<span class="o">//</span> <span class="nb">print</span> <span class="nb">all</span> <span class="n">pending</span> <span class="n">txs</span>
+<span class="n">eth</span><span class="o">.</span><span class="n">getBlock</span><span class="p">(</span><span class="s2">&quot;pending&quot;</span><span class="p">,</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">transactions</span>
+</pre></div>
+</div>
+<p>If you submitted contract creation transaction, you can check if the desired code actually got inserted in the current blockchain:</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">txhash</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">sendTansaction</span><span class="p">({</span><span class="n">from</span><span class="p">:</span><span class="n">primary</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">code</span><span class="p">})</span>
+<span class="o">//...</span> <span class="n">mining</span>
+<span class="n">contractaddress</span> <span class="o">=</span> <span class="n">eth</span><span class="o">.</span><span class="n">getTransactionReceipt</span><span class="p">(</span><span class="n">txhash</span><span class="p">);</span>
+<span class="n">eth</span><span class="o">.</span><span class="n">getCode</span><span class="p">(</span><span class="n">contractaddress</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accessing-contracts-and-transactions.html" class="btn btn-neutral float-right" title="Accessing Contracts and Transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="account-types-gas-and-transactions.html" class="btn btn-neutral" title="Account Types, Gas, and Transactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

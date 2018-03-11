@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project Editor &mdash; Ethereum Homestead 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Ethereum Homestead 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Mix" href="../mix.html"/>
+        <link rel="next" title="Scenarios Editor" href="scenario-editor.html"/>
+        <link rel="prev" title="Mix" href="../mix.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Ethereum Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ethereum-clients/index.html">Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ether.html">Ether</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../network/index.html">The Ethereum network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mining.html">Mining</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Contracts and Transactions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../account-types-gas-and-transactions.html">Account Types, Gas, and Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contracts.html">Contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessing-contracts-and-transactions.html">Accessing Contracts and Transactions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../mix.html">Mix</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Project Editor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-new-project">Creating a new project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-backend-contract-file">Editing backend contract file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scenario-editor.html">Scenarios Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state-viewer.html">State Viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction-explorer.html">Transaction Explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="javascript-console.html">JavaScript console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transaction-debugger.html">Transaction debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dapp-deployment.html">Dapps deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="codeeditor.html">Code Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-tools.html">Dapps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer-tools.html#developer-tools">Developer Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethereum-tests/index.html">Ethereum Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web3-base-layer-services.html">Web3 Base Layer Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Ethereum Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Contracts and Transactions</a> &raquo;</li>
+        
+          <li><a href="../mix.html">Mix</a> &raquo;</li>
+        
+      <li>Project Editor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/contracts-and-transactions/mix/project-editor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="project-editor">
+<span id="sec-project-editor"></span><h1>Project Editor<a class="headerlink" href="#project-editor" title="Permalink to this headline">¶</a></h1>
+<p>You can use projects to manage the creation and testing of a dapp. The
+project will contain data related to both backend and frontend as well
+as the data related to your scenarios (blockchain interaction) for
+debugging and testing. The related files will be created and saved
+automatically in the project directory.</p>
+<div class="section" id="creating-a-new-project">
+<h2>Creating a new project<a class="headerlink" href="#creating-a-new-project" title="Permalink to this headline">¶</a></h2>
+<p>The development of a dapp start with the creation of a new project.
+Create a new project in the “edit” menu. Enter the project name, e.g.
+“Ratings” and select a path for the project file.</p>
+</div>
+<div class="section" id="editing-backend-contract-file">
+<h2>Editing backend contract file<a class="headerlink" href="#editing-backend-contract-file" title="Permalink to this headline">¶</a></h2>
+<p>By default, a new project contains a contract “Contract” for backend
+development on the blockchain using the Solidity language and the
+“index.html” for the frontend. Check the Solidity tutorial for
+references.</p>
+<p>Edit the empty default contract “Contract”, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contract</span> <span class="n">Rating</span> <span class="p">{</span>
+        <span class="n">function</span> <span class="n">setRating</span><span class="p">(</span><span class="n">bytes32</span> <span class="n">_key</span><span class="p">,</span> <span class="n">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">ratings</span><span class="p">[</span><span class="n">_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_value</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">mapping</span> <span class="p">(</span><span class="n">bytes32</span> <span class="o">=&gt;</span> <span class="n">uint256</span><span class="p">)</span> <span class="n">public</span> <span class="n">ratings</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Check the Solidity tutorial for help getting started with the solidity
+programming language.</p>
+<p>Save changes</p>
+<div class="section" id="editing-frontend-html-files">
+<h3>Editing frontend html files<a class="headerlink" href="#editing-frontend-html-files" title="Permalink to this headline">¶</a></h3>
+<p>Select default index.html file and enter the following code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> .... &lt;script&gt;
+
+function getRating() {
+  var param = document.getElementById(“query”).value;
+  var res = contracts[“Rating”].contract.ratings(param);
+  document.getElementById(“queryres”).innerText = res;
+}
+
+function setRating() {
+        var key = document.getElementById(&quot;key&quot;).value;
+        var value = parseInt(document.getElementById(&quot;value&quot;).value);
+        var res = contracts[&quot;Rating&quot;].contract.setRating(key, value);
+}
+
+&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body bgcolor=&quot;#E6E6FA&quot;&gt;
+        &lt;h1&gt;Ratings&lt;/h1&gt;
+        &lt;div&gt;
+            Store:
+            &lt;input type=&quot;string&quot; id=&quot;key&quot;&gt;
+            &lt;input type=&quot;number&quot; id=&quot;value&quot;&gt;
+            &lt;button onclick=&quot;setRating()&quot;&gt;Save&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            Query:
+            &lt;input type=&quot;string&quot; id=&quot;query&quot; onkeyup=&#39;getRating()&#39;&gt;
+            &lt;div id=&quot;queryres&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</pre></div>
+</div>
+<p>Then it is possible to add many contract files as well as many HTML,
+JavaScript, css files</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scenario-editor.html" class="btn btn-neutral float-right" title="Scenarios Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mix.html" class="btn btn-neutral" title="Mix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

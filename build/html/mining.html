@@ -1,0 +1,626 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mining &mdash; Wanchain Homestead 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Wanchain Homestead 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Frequently Asked Questions" href="frequently-asked-questions/frequently-asked-questions.html"/>
+        <link rel="prev" title="Account Management" href="account-management.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Wanchain Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account-management.html">Account Management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mining</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-mining">What is mining?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mining-rewards">Mining rewards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethash-dag">Ethash DAG</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-algorithm">The algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpu-mining">CPU mining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-geth">Using geth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gpu-mining">GPU mining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-linux-set-up">Ubuntu Linux set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-set-up">Mac set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-set-up">Windows set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-ethminer-with-geth">Using ethminer with geth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-ethminer-with-eth">Using ethminer with eth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mining-on-a-single-gpu">Mining on a single GPU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mining-on-a-multiple-gpus">Mining on a multiple GPUs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#benchmarking">Benchmarking</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pool-mining">Pool mining</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mining-pools">Mining pools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mining-resources">Mining resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pos-vs-pow">POS vs POW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frequently-asked-questions/frequently-asked-questions.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wanchain Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Mining</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mining.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mining">
+<span id="id1"></span><h1>Mining<a class="headerlink" href="#mining" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The word mining originates in the context of the gold analogy for crypto currencies. Gold or precious metals are scarce, so are digital tokens, and the only way to increase the total volume is through mining. This is appropriate to the extent that in Ethereum too, the only mode of issuance post launch is via mining. Unlike these examples however, mining is also the way to secure the network by creating, verifying, publishing and propagating blocks in the blockchain.</p>
+<ul class="simple">
+<li>Mining ether = Securing the Network = Verifying Computation</li>
+</ul>
+<div class="section" id="what-is-mining">
+<h3>What is mining?<a class="headerlink" href="#what-is-mining" title="Permalink to this headline">¶</a></h3>
+<p>Ethereum, like all blockchain technologies, uses an incentive-driven model of security. Consensus is based on choosing the block with the highest total difficulty. Miners produce blocks which the others check for validity. Among other well-formedness criteria, a block is only valid if it contains <em>proof of work</em> (PoW) of a given <em>difficulty</em>. Note that in the Ethereum Serenity milestone, this is likely going to be replaced by a  (see <a class="reference internal" href="#pos-vs-pow"><span class="std std-ref">proof of stake model</span></a> ).</p>
+<p>The Ethereum blockchain is in many ways similar to the Bitcoin blockchain, although it does have some differences. The main difference between Ethereum and Bitcoin with regard to the blockchain architecture is that, unlike Bitcoin, Ethereum blocks contain a copy of both the transaction list and the most recent state (the root hash of the merkle patricia trie encoding the state to be more precise). Aside from that, two other values, the block number and the difficulty, are also stored in the block.</p>
+<p>The proof of work algorithm used is called <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethash">Ethash</a> (a modified version of <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Dagger-Hashimoto">the Dagger-Hashimoto algorithm</a>) and involves finding a <em>nonce</em> input to the algorithm so that the result is below a certain difficulty threshold. The point in PoW algorithms is that there is no better strategy to find such a nonce than enumerating the possibilities, while verification of a solution is trivial and cheap. Since outputs have a uniform distribution (as they are the result of the application of a hash function), we can guarantee that, on average, the time needed to find such a nonce depends on the difficulty threshold. This makes it possible to control the time of finding a new block just by manipulating the difficulty.</p>
+<p>As dictated by the protocol, the difficulty dynamically adjusts in such a way that on average one block is produced by the entire network every 15 seconds. We say that the network produces a blockchain with a <em>15 second block time</em>.
+This “heartbeat” basically punctuates the synchronisation of system state
+and guarantees that maintaining a fork (to allow double spend) or
+rewriting history by malicious actors are impossible unless the attacker possesses more than half of the network mining power (this is the so called <em>51% attack</em>).</p>
+<p>Any node participating in the network can be a miner and their expected revenue from mining will be directly proportional to their (relative) mining power or <em>hashrate</em>, i.e., the number of nonces tried per second normalised by the total hashrate of the network.</p>
+<p>Ethash PoW is <em>memory hard</em>, making it <em>ASIC resistant</em>. Memory hardness is achieved with a proof of work algorithm that requires choosing subsets of a fixed resource dependent on the nonce and block header. This resource (a few gigabyte size data) is called a <strong>DAG</strong>. The <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethash-DAG">DAG</a> is totally different every 30000 blocks, a 125-hour window called <em>epoch</em> (roughly 5.2 days) and takes a while to generate. Since the DAG only depends on block height, it can be pregenerated but if its not, the client needs to wait until the end of this process to produce a block. If clients do not pregenerate and cache DAGs ahead of time the network may experience massive block delay on each epoch transition. Note that the DAG does not need to be generated for verifying the PoW essentially allowing for verification with both low CPU and small memory.</p>
+<p>As a special case, when you start up your node from scratch, mining will only start once the DAG is built for the current epoch.</p>
+</div>
+<div class="section" id="mining-rewards">
+<h3>Mining rewards<a class="headerlink" href="#mining-rewards" title="Permalink to this headline">¶</a></h3>
+<p>The successful PoW miner of the winning block receives:</p>
+<ul class="simple">
+<li>a <em>static block reward</em> for the ‘winning’ block, consisting of exactly 5.0 Ether</li>
+<li>cost of the gas expended within the block – an amount of ether that depends on the current gas price</li>
+<li>an extra reward for including uncles as part of the block, in the form of an extra 1/32 per uncle included</li>
+</ul>
+<p>All the gas consumed by the execution of all the transactions in the block submitted by the winning miner is paid by the senders of each transaction. The gas cost incurred is credited to the miner’s account as part of the consensus protocol. Over time, it is expected these will dwarf the static block reward.</p>
+<p><em>Uncles</em> are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 ether). A maximum of 2 uncles are allowed per block.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/">Uncles ELI5 on reddit</a></li>
+<li><a class="reference external" href="https://forum.ethereum.org/discussion/2262/eli5-whats-an-uncle-in-ethereum-mining">Forum thread explaining uncles</a></li>
+</ul>
+</div></blockquote>
+<p>Mining success depends on the set block difficulty. Block difficulty dynamically adjusts each block in order to regulate the network hashing power to produce a 12 second blocktime. Your chances of finding a block therefore follows from your hashrate relative to difficulty.</p>
+</div>
+<div class="section" id="ethash-dag">
+<h3>Ethash DAG<a class="headerlink" href="#ethash-dag" title="Permalink to this headline">¶</a></h3>
+<p>Ethash uses a <em>DAG</em> (directed acyclic graph) for the proof of work algorithm, this is generated for each <em>epoch</em>, i.e., every 30000 blocks (125 hours, ca. 5.2 days). The DAG takes a long time to generate. If clients only generate it on demand, you may see a long wait at each epoch transition before the first block of the new epoch is found. However, the DAG only depends on the block number, so it can and should be calculated in advance to avoid long wait times at each epoch transition. Both <code class="docutils literal notranslate"><span class="pre">geth</span></code> and <code class="docutils literal notranslate"><span class="pre">ethminer</span></code> implement automatic DAG generation and maintains two DAGs at a time for smooth epoch transitions. Automatic DAG generation is turned on and off when mining is controlled from the console. It is also turned on by default if <code class="docutils literal notranslate"><span class="pre">geth</span></code> is launched with the <code class="docutils literal notranslate"><span class="pre">--mine</span></code> option. Note that clients share a DAG resource, so if you are running multiple instances of any client, make sure automatic dag generation is switched off in all but one instance.</p>
+<p>To generate the DAG for an arbitrary epoch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth makedag &lt;block number&gt; &lt;outputdir&gt;
+</pre></div>
+</div>
+<p>For instance <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">makedag</span> <span class="pre">360000</span> <span class="pre">~/.ethash</span></code>. Note that ethash uses
+<code class="docutils literal notranslate"><span class="pre">~/.ethash</span></code> (Mac/Linux) or <code class="docutils literal notranslate"><span class="pre">~/AppData/Ethash</span></code> (Windows) for the DAG
+so that it can shared between different client implementations as well as multiple running instances.</p>
+</div>
+</div>
+<div class="section" id="the-algorithm">
+<h2>The algorithm<a class="headerlink" href="#the-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>Our algorithm, <a class="reference external" href="https://github.com/ethereum/wiki/wiki/Ethash">Ethash</a> (previously known as Dagger-Hashimoto), is based around the provision of a large, transient, randomly generated dataset which forms a DAG (the Dagger-part), and attempting to solve a particular constraint on it, partly determined through a block’s header-hash.</p>
+<p>It is designed to hash a fast verifiability time within a slow CPU-only environment, yet provide vast speed-ups for mining when provided with a large amount of memory with high-bandwidth. The large memory requirements mean that large-scale miners get comparatively little super-linear benefit. The high bandwidth requirement means that a speed-up from piling on many super-fast processing units sharing the same memory gives little benefit over a single unit. This is important in that pool mining have no benefit for nodes doing verification, thus discourageing centralisation.</p>
+<p>Communication between the external mining application and the Ethereum daemon for work provision and submission happens through the JSON-RPC API. Two RPC functions are provided; <code class="docutils literal notranslate"><span class="pre">eth_getWork</span></code> and <code class="docutils literal notranslate"><span class="pre">eth_submitWork</span></code>.</p>
+<p>These are formally documented on the <a class="reference external" href="https://github.com/ethereum/wiki/wiki/JSON-RPC">JSON-RPC API</a> wiki article under <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#miner">miner</a>.</p>
+<p>In order to mine you need a fully synced Ethereum client that is enabled for mining and at least one ethereum account. This account is used to send the mining rewards to and is often referred to as <em>coinbase</em> or <em>etherbase</em>. Visit the “<a class="reference internal" href="account-management.html#creating-an-account"><span class="std std-ref">Creating an account</span></a>” section of this guide to learn how to create an account.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Ensure your blockchain is fully synchronised with the main chain before starting to mine, otherwise you will not be mining on the main chain.</p>
+</div>
+</div>
+<div class="section" id="cpu-mining">
+<h2>CPU mining<a class="headerlink" href="#cpu-mining" title="Permalink to this headline">¶</a></h2>
+<p>You can use your computer’s central processing unit (CPU) to mine ether. This is no longer profitable, since GPU miners are roughly two orders of magnitude more efficient. However, you can use CPU mining to mine on the Morden testnet or a private chain for the purposes of creating the ether you need to test contracts and transactions without spending your real ether on the live network.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The testnet ether has no value other than using it for testing purposes (see <span class="xref std std-ref">test-networks</span>).</p>
+</div>
+<div class="section" id="using-geth">
+<h3>Using geth<a class="headerlink" href="#using-geth" title="Permalink to this headline">¶</a></h3>
+<p>When you start up your ethereum node with <code class="docutils literal notranslate"><span class="pre">geth</span></code> it is not mining by
+default. To start it in CPU mining mode, you use the <code class="docutils literal notranslate"><span class="pre">--mine</span></code> <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options">command line option</a>.
+The <code class="docutils literal notranslate"><span class="pre">-minerthreads</span></code> parameter can be used to set the number parallel mining threads (defaulting to the total number of processor cores).</p>
+<p><code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">--mine</span> <span class="pre">--minerthreads=4</span></code></p>
+<p>You can also start and stop CPU mining at runtime using the <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerstart">console</a>. <code class="docutils literal notranslate"><span class="pre">miner.start</span></code> takes an optional parameter for the number of miner threads.</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="kc">true</span>
+<span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">stop</span><span class="p">()</span>
+<span class="kc">true</span>
+</pre></div>
+</div>
+<p>Note that mining for real ether only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the eth blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with <code class="docutils literal notranslate"><span class="pre">miner.stop()</span></code>.</p>
+<p>In order to earn ether you must have your <strong>etherbase</strong> (or <strong>coinbase</strong>) address set. This etherbase defaults to your primary account. If you don’t have an etherbase address, then <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">--mine</span></code> will not start up.</p>
+<p>You can set your etherbase on the command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth --etherbase <span class="m">1</span> --mine  <span class="m">2</span>&gt;&gt; geth.log // <span class="m">1</span> is index: second account by creation order OR
+geth --etherbase <span class="s1">&#39;0xa4d8e9cae4d04b093aac82e6cd355b6b963fb7ff&#39;</span> --mine <span class="m">2</span>&gt;&gt; geth.log
+</pre></div>
+</div>
+<p>You can reset your etherbase on the console too:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">miner</span><span class="p">.</span><span class="nx">setEtherbase</span><span class="p">(</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that your etherbase does not need to be an address of a local account, just an existing one.</p>
+<p>There is an option <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#minersetextra">to add extra Data</a> (32 bytes only) to your mined blocks. By convention this is interpreted as a unicode string, so you can set your short vanity tag.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">miner</span><span class="p">.</span><span class="nx">setExtra</span><span class="p">(</span><span class="s2">&quot;ΞTHΞЯSPHΞЯΞ&quot;</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="nx">debug</span><span class="p">.</span><span class="nx">printBlock</span><span class="p">(</span><span class="mi">131805</span><span class="p">)</span>
+<span class="nx">BLOCK</span><span class="p">(</span><span class="nx">be465b020fdbedc4063756f0912b5a89bbb4735bd1d1df84363e05ade0195cb1</span><span class="p">)</span><span class="o">:</span> <span class="nx">Size</span><span class="o">:</span> <span class="mf">531.00</span> <span class="nx">B</span> <span class="nx">TD</span><span class="o">:</span> <span class="mi">643485290485</span> <span class="p">{</span>
+<span class="nx">NoNonce</span><span class="o">:</span> <span class="nx">ee48752c3a0bfe3d85339451a5f3f411c21c8170353e450985e1faab0a9ac4cc</span>
+<span class="nx">Header</span><span class="o">:</span>
+<span class="p">[</span>
+<span class="p">...</span>
+        <span class="nx">Coinbase</span><span class="o">:</span>           <span class="nx">a4d8e9cae4d04b093aac82e6cd355b6b963fb7ff</span>
+        <span class="nb">Number</span><span class="o">:</span>             <span class="mi">131805</span>
+        <span class="nx">Extra</span><span class="o">:</span>              <span class="nx">ΞTHΞЯSPHΞЯΞ</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can check your hashrate with <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerhashrate">miner.hashrate</a>, the result is in H/s (Hash operations per second).</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">hashrate</span>
+<span class="mi">712000</span>
+</pre></div>
+</div>
+<p>After you successfully mined some blocks, you can check the ether balance of your etherbase account. Now assuming your etherbase is a local account:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">eth</span><span class="p">.</span><span class="nx">coinbase</span><span class="p">).</span><span class="nx">toNumber</span><span class="p">();</span>
+<span class="s1">&#39;34698870000000&#39;</span>
+</pre></div>
+</div>
+<p>In order to spend your earnings on gas to transact, you will need to have this account unlocked.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">unlockAccount</span><span class="p">(</span><span class="nx">eth</span><span class="p">.</span><span class="nx">coinbase</span><span class="p">)</span>
+<span class="nx">Password</span>
+<span class="kc">true</span>
+</pre></div>
+</div>
+<p>You can check which blocks are mined by a particular miner (address) with the following code snippet on the console:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">minedBlocks</span><span class="p">(</span><span class="nx">lastn</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">addrs</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">addr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">addr</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">coinbase</span>
+  <span class="p">}</span>
+  <span class="nx">limit</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">blockNumber</span> <span class="o">-</span> <span class="nx">lastn</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">blockNumber</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="nx">limit</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">eth</span><span class="p">.</span><span class="nx">getBlock</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">miner</span> <span class="o">==</span> <span class="nx">addr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">addrs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">addrs</span>
+<span class="p">}</span>
+<span class="c1">// scans the last 1000 blocks and returns the blocknumbers of blocks mined by your coinbase</span>
+<span class="c1">// (more precisely blocks the mining reward for which is sent to your coinbase).</span>
+<span class="nx">minedBlocks</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="nx">eth</span><span class="p">.</span><span class="nx">coinbase</span><span class="p">);</span>
+<span class="c1">//[352708, 352655, 352559]</span>
+</pre></div>
+</div>
+<p>Note that it will happen often that you find a block yet it never makes it to the canonical chain. This means when you locally include your mined block, the current state will show the mining reward credited to your account, however, after a while, the better chain is discovered and we switch to a chain in which your block is not included and therefore no mining reward is credited. Therefore it is quite possible that as a miner monitoring their coinbase balance will find that it may fluctuate quite a bit.</p>
+</div>
+</div>
+<div class="section" id="gpu-mining">
+<h2>GPU mining<a class="headerlink" href="#gpu-mining" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h3>
+<p>The algorithm is memory hard and in order to fit the DAG into memory, it needs 1-2GB of RAM on each GPU. If you get <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">GPU</span> <span class="pre">mining.</span> <span class="pre">GPU</span> <span class="pre">memory</span> <span class="pre">fragmentation?</span></code> you do not have enough memory.
+The GPU miner is implemented in OpenCL, so AMD GPUs will be ‘faster’ than same-category NVIDIA GPUs.
+ASICs and FPGAs are relatively inefficient and therefore discouraged.
+To get openCL for your chipset and platform, try:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk">AMD SDK openCL</a></li>
+<li><a class="reference external" href="https://developer.nvidia.com/cuda-downloads">NVIDIA CUDA openCL</a></li>
+</ul>
+</div>
+<div class="section" id="ubuntu-linux-set-up">
+<h3>Ubuntu Linux set-up<a class="headerlink" href="#ubuntu-linux-set-up" title="Permalink to this headline">¶</a></h3>
+<p>For this quick guide, you’ll need Ubuntu 14.04 or 15.04 and the fglrx graphics drivers. You can use NVidia drivers and other platforms, too, but you’ll have to find your own way to getting a working OpenCL install with them, such as <a class="reference external" href="http://cryptomining-blog.com/tag/ethminer/">Genoil’s ethminer fork</a>.</p>
+<p>If you’re on 15.04, Go to “Software and Updates &gt; Additional Drivers” and set it to “Using video drivers for the AMD graphics accelerator from fglrx”.</p>
+<p>If you’re on 14.04, go to “Software and Updates &gt; Additional Drivers” and set it to “Using video drivers for the AMD graphics accelerator from fglrx”. Unfortunately, for some of you this will not work due to a known bug in Ubuntu 14.04.02 preventing you from switching to the proprietary graphics drivers required to GPU mine.</p>
+<p>So, if you encounter this bug, and before you do anything else, go to “Software and updates &gt; Updates” and select “Pre-released updates trusty proposed”. Then, go back to “Software and Updates &gt; Additional Drivers” and set it to “Using video drivers for the AMD graphics accelerator from fglrx”). After rebooting, it’s well worth having a check that the drivers have now indeed been installed correctly (For example by going to “Additional Drivers” again).</p>
+<p>Whatever you do, if you are on 14.04.02 do not alter the drivers or the drivers configuration once set. For example, the usage of aticonfig –initial (especially with the -f, –force option) can ‘break’ your setup. If you accidentally alter their configuration, you’ll need to de-install the drivers, reboot, reinstall the drivers and reboot.</p>
+</div>
+<div class="section" id="mac-set-up">
+<h3>Mac set-up<a class="headerlink" href="#mac-set-up" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.29_mac.pkg
+sudo installer -pkg ~/Desktop/cuda_7.0.29_mac.pkg -target /
+brew update
+brew tap ethereum/ethereum
+brew reinstall cpp-ethereum --with-gpu-mining --devel --headless --build-from-source
+</pre></div>
+</div>
+<p>You check your cooling status:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aticonfig --adapter<span class="o">=</span><span class="m">0</span> --od-gettemperature
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-set-up">
+<h3>Windows set-up<a class="headerlink" href="#windows-set-up" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/ethereum-mining/ethminer/releases">Download the latest Eth++ installation</a> and choose ethminer at the “Choose Components” screen of the installation screen.</p>
+<img alt="_images/eth_miner_setup.png" src="_images/eth_miner_setup.png" />
+</div>
+<div class="section" id="using-ethminer-with-geth">
+<h3>Using ethminer with geth<a class="headerlink" href="#using-ethminer-with-geth" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth account new // Set-up ethereum account <span class="k">if</span> you <span class="k">do</span> not have one
+geth --rpc --rpccorsdomain localhost <span class="m">2</span>&gt;&gt; geth.log <span class="p">&amp;</span>
+ethminer -G  // -G <span class="k">for</span> GPU, -M <span class="k">for</span> benchmark
+tail -f geth.log
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ethminer</span></code> communicates with geth on port 8545 (the default RPC port in geth). You can change this by giving the <code class="docutils literal notranslate"><span class="pre">--rpcport</span></code> option to <code class="docutils literal notranslate"><span class="pre">geth</span></code>. Ethminer will find geth on any port. Note that you need to set the CORS header with <code class="docutils literal notranslate"><span class="pre">--rpccorsdomain</span> <span class="pre">localhost</span></code>. You can also set port on <code class="docutils literal notranslate"><span class="pre">ethminer</span></code> with <code class="docutils literal notranslate"><span class="pre">-F</span> <span class="pre">http://127.0.0.1:3301</span></code>. Setting the ports is necessary if you want several instances mining on the same computer, although this is somewhat pointless. If you are testing on a private chain, we recommend you use CPU mining instead.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You do <strong>not</strong> need to give <code class="docutils literal notranslate"><span class="pre">geth</span></code> the <code class="docutils literal notranslate"><span class="pre">--mine</span></code> option or start the miner in the console unless you want to do CPU mining on TOP of GPU mining.</p>
+</div>
+<p>If the default for <code class="docutils literal notranslate"><span class="pre">ethminer</span></code> does not work try to specify the OpenCL device with: <code class="docutils literal notranslate"><span class="pre">--opencl-device</span> <span class="pre">X</span></code> where X is {0, 1, 2,…}. When running <code class="docutils literal notranslate"><span class="pre">ethminer</span></code> with <code class="docutils literal notranslate"><span class="pre">-M</span></code> (benchmark), you should see something like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Benchmarking on platform: <span class="o">{</span> <span class="s2">&quot;platform&quot;</span>: <span class="s2">&quot;NVIDIA CUDA&quot;</span>, <span class="s2">&quot;device&quot;</span>: <span class="s2">&quot;GeForce GTX 750 Ti&quot;</span>, <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;OpenCL 1.1 CUDA&quot;</span> <span class="o">}</span>
+
+
+Benchmarking on platform: <span class="o">{</span> <span class="s2">&quot;platform&quot;</span>: <span class="s2">&quot;Apple&quot;</span>, <span class="s2">&quot;device&quot;</span>: <span class="s2">&quot;Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz&quot;</span>, <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;OpenCL 1.2 &quot;</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>To debug <code class="docutils literal notranslate"><span class="pre">geth</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>geth  --rpccorsdomain <span class="s2">&quot;localhost&quot;</span> --verbosity <span class="m">6</span> <span class="m">2</span>&gt;&gt; geth.log
+</pre></div>
+</div>
+<p>To debug the miner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DETHASHCL<span class="o">=</span><span class="m">1</span> -DGUI<span class="o">=</span><span class="m">0</span>
+gdb --args ethminer -G -M
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">hashrate info is not available in <code class="docutils literal notranslate"><span class="pre">geth</span></code> when GPU mining.</p>
+</div>
+<p>Check your hashrate with <code class="docutils literal notranslate"><span class="pre">ethminer</span></code>, <code class="docutils literal notranslate"><span class="pre">miner.hashrate</span></code> will always report 0.</p>
+</div>
+<div class="section" id="using-ethminer-with-eth">
+<h3>Using ethminer with eth<a class="headerlink" href="#using-ethminer-with-eth" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mining-on-a-single-gpu">
+<h4>Mining on a single GPU<a class="headerlink" href="#mining-on-a-single-gpu" title="Permalink to this headline">¶</a></h4>
+<p>In order to mine on a single GPU all that needs to be done is to run eth with the following arguments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>eth -v <span class="m">1</span> -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name <span class="s2">&quot;OPTIONALNAMEHERE&quot;</span> -x <span class="m">50</span> -m on -G
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">1</span></code> Set verbosity to 1. Let’s not get spammed by messages.</li>
+<li><code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">YOURWALLETADDRESS</span></code> Set the coinbase, where the mining rewards will go to. The above address is just an example. This argument is really important, make sure to not make a mistake in your wallet address or you will receive no ether payout.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--client-name</span> <span class="pre">&quot;OPTIONAL&quot;</span></code> Set an optional client name to identify you on the network</li>
+<li><code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">50</span></code> Request a high amount of peers. Helps with finding peers in the beginning.</li>
+<li><code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">on</span></code> Actually launch with mining on.</li>
+<li><code class="docutils literal notranslate"><span class="pre">-G</span></code> set GPU mining on.</li>
+</ul>
+<p>While the client is running you can interact with it using either
+geth attach` or [ethconsole](<a class="reference external" href="https://github.com/ethereum/ethereum-console">https://github.com/ethereum/ethereum-console</a>).</p>
+</div>
+<div class="section" id="mining-on-a-multiple-gpus">
+<h4>Mining on a multiple GPUs<a class="headerlink" href="#mining-on-a-multiple-gpus" title="Permalink to this headline">¶</a></h4>
+<p>Mining with multiple GPUs and eth is very similar to mining with geth and multiple GPUs.
+Ensure that an eth node is running with your coinbase address properly set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>eth -v <span class="m">1</span> -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name <span class="s2">&quot;OPTIONALNAMEHERE&quot;</span> -x <span class="m">50</span> -j
+</pre></div>
+</div>
+<p>Notice that we also added the -j argument so that the client can have the JSON-RPC server enabled to communicate with the ethminer instances. Additionally we removed the mining related arguments since ethminer will now do the mining for us.
+For each of your GPUs execute a different ethminer instance:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ethminer --no-precompute -G --opencl-device X
+</pre></div>
+</div>
+<p>Where X is the index number corresponding to the openCL device you want the ethminer to use  {0, 1, 2,…}.
+In order to easily get a list of OpenCL devices you can execute <code class="docutils literal notranslate"><span class="pre">ethminer</span> <span class="pre">--list-devices</span></code> which will provide a list of all devices OpenCL can detect, with also some additional information per device.</p>
+<p>Below is a sample output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[0] GeForce GTX 770</span>
+<span class="go">    CL_DEVICE_TYPE: GPU</span>
+<span class="go">    CL_DEVICE_GLOBAL_MEM_SIZE: 4286345216</span>
+<span class="go">    CL_DEVICE_MAX_MEM_ALLOC_SIZE: 1071586304</span>
+<span class="go">    CL_DEVICE_MAX_WORK_GROUP_SIZE: 1024</span>
+</pre></div>
+</div>
+<p>Finally the <code class="docutils literal notranslate"><span class="pre">--no-precompute</span></code> argument requests that the ethminers don’t create the DAG of the next epoch ahead of time. Although this is not recommended since you’ll have a mining interruption every time when there’s an epoch transition.</p>
+</div>
+<div class="section" id="benchmarking">
+<h4>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h4>
+<p>Mining power tends to scale with memory bandwidth. Our implementation is written in OpenCL, which is typically supported better by AMD GPUs over NVidia. Empirical evidence confirms that AMD GPUs offer a better mining performance in terms of price than their NVidia counterparts.</p>
+<p>To benchmark a single-device setup you can use ethminer in benchmarking mode through the -M option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ethminer -G -M
+</pre></div>
+</div>
+<p>If you have many devices and you’ll like to benchmark each individually, you can use the –opencl-device option similarly to the previous section:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ethminer -G -M --opencl-device X
+</pre></div>
+</div>
+<p>Use ethminer <code class="docutils literal notranslate"><span class="pre">--list-devices</span></code> to list possible numbers to substitute for the X {0, 1, 2,…}.</p>
+<p>To start mining on Windows, first <a class="reference external" href="https://build.ethereum.org/builds/Windows%20Go%20master%20branch/">download the geth windows binary</a>.</p>
+<ul class="simple">
+<li>Unzip Geth (right-click and select unpack) and launch Command Prompt. Use <cite>cd</cite> to navigate to the location of the Geth data folder. (e.g. <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code> to go to the <code class="docutils literal notranslate"><span class="pre">C:</span></code> drive)</li>
+<li>Start geth by typing <code class="docutils literal notranslate"><span class="pre">geth</span> <span class="pre">--rpc</span></code>.</li>
+</ul>
+<p>As soon as you enter this, the Ethereum blockchain will start downloading. Sometimes your firewall may block the synchronisation process (it will prompt you when doing so). If this is the case, click “Allow access”.</p>
+<ul class="simple">
+<li>First <a class="reference external" href="http://cryptomining-blog.com/tag/ethminer-cuda-download/">download and install ethminer</a>, the C++ mining software (your firewall or Windows itself may act up, allow access)</li>
+<li>Open up another Command Prompt (leave the first one running!), change directory by typing <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/Program\</span> <span class="pre">Files/Ethereum(++)/release</span></code></li>
+<li>Now make sure <cite>geth</cite> has finished syncing the blockchain. If it is not syncing any longer, you can start the mining process by typing <code class="docutils literal notranslate"><span class="pre">ethminer</span> <span class="pre">-G</span></code> at the command prompt</li>
+</ul>
+<p>At this point some problems may appear. If you get an error, you can abort the miner by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>. If the error says
+“Insufficient Memory”, your GPU does not have enough memory to mine ether.</p>
+</div>
+</div>
+</div>
+<div class="section" id="pool-mining">
+<h2>Pool mining<a class="headerlink" href="#pool-mining" title="Permalink to this headline">¶</a></h2>
+<p>Mining pools are cooperatives that aim to smooth out expected revenue by pooling the mining power of participating miners. In return, they usually charge you 0-5% of your mining rewards. The mining pool submits blocks with proof of work from a central account and redistributes the reward to participants in proportion to their contributed mining power.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Most mining pools involve third party, central components which means they are not trustless. In other words, pool operators can run away with your earnings. Act with caution. There are a number of trustless, decentralised pools with open source codebase.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Mining pools only outsource proof of work calculation, they do not validate blocks or run the VM to check state transitions brought about by executing the transactions. This effectively make pools behave like single nodes in terms of security, so their growth poses a centralisation risk of a <a class="reference external" href="https://learncryptography.com/cryptocurrency/51-attack">51% attack</a>. Make sure you follow the network capacity distribution and do not allow pools to grow too large.</p>
+</div>
+<div class="section" id="mining-pools">
+<h3>Mining pools<a class="headerlink" href="#mining-pools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://www.coinotron.com/">coinotron</a></li>
+<li><a class="reference external" href="http://eth.nanopool.org/">nanopool</a></li>
+<li><a class="reference external" href="https://github.com/etherchain-org/ethpool-core">ethpool</a> - Predictable solo mining, unconventional payout scheme, affiliated with <a class="reference external" href="https://etherchain.org/">etherchain.org</a>.</li>
+<li><a class="reference external" href="https://eth.suprnova.cc/">supernova</a></li>
+<li><a class="reference external" href="https://www2.coinmine.pl/eth/">coinmine.pl</a></li>
+<li><a class="reference external" href="https://eth.pp.ua/">eth.pp.ua</a></li>
+<li><a class="reference external" href="http://talkether.org/">talkether</a> - Unconventional payout scheme, partially decentralized</li>
+<li><a class="reference external" href="http://weipool.org/">weipool</a></li>
+<li><a class="reference external" href="https://ethereumpool.co/">ethereumpool</a></li>
+<li><a class="reference external" href="http://www.pooleum.com">pooleum</a></li>
+<li><a class="reference external" href="http://www.alphapool.xyz/">alphapool</a></li>
+<li><a class="reference external" href="http://ethereum.cryptopool.online/">cryptopool</a></li>
+<li><a class="reference external" href="http://eth.unitedminers.cloud/">unitedminers</a></li>
+<li><a class="reference external" href="https://2miners.com/">2miners</a></li>
+<li><a class="reference external" href="http://dwarfpool.com/eth">dwarfpool</a> - Try to avoid this (currently over 50% of the network)</li>
+<li><a class="reference external" href="http://pool.laintimes.com/">laintimes</a> - Discontinued</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mining-resources">
+<h2>Mining resources<a class="headerlink" href="#mining-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://etherchain.org/statistics/miners">Top miners of last 24h on etherchain</a></li>
+<li><a class="reference external" href="http://cryptomining-blog.com/5607-the-current-state-of-ethereum-mining-pools/">pool hashrate distribution for august 2015</a></li>
+<li><a class="reference external" href="https://forum.ethereum.org/discussion/3659/list-of-pools">Unmaintained list of pools on Forum</a></li>
+<li><a class="reference external" href="https://www.cryptocompare.com/mining/calculator/eth">Mining profitability calculator on cryptocompare</a></li>
+<li><a class="reference external" href="http://cryptowizzard.github.io/eth-mining-calculator/">Mining profitability calculator on cryptowizzard</a></li>
+<li><a class="reference external" href="http://etherscan.io/ether-mining-calculator/">Mining profitability calculator on etherscan</a></li>
+<li><a class="reference external" href="http://ethereum-mining-calculator.com/">Mining profitability calculator on In The Ether</a></li>
+<li><a class="reference external" href="http://etherscan.io/charts/difficulty">Mining difficulty chart on etherscan</a></li>
+</ul>
+<div class="section" id="pos-vs-pow">
+<span id="id2"></span><h3>POS vs POW<a class="headerlink" href="#pos-vs-pow" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/38db1z/eli5_the_difference_between_pos_and_pow/">https://www.reddit.com/r/ethereum/comments/38db1z/eli5_the_difference_between_pos_and_pow/</a></li>
+<li><a class="reference external" href="https://blog.ethereum.org/2014/11/25/proof-stake-learned-love-weak-subjectivity/">https://blog.ethereum.org/2014/11/25/proof-stake-learned-love-weak-subjectivity/</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/ethereum/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/">https://www.reddit.com/r/ethereum/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="frequently-asked-questions/frequently-asked-questions.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="account-management.html" class="btn btn-neutral" title="Account Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Wanchain community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

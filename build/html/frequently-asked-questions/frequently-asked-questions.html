@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frequently Asked Questions &mdash; Wanchain Homestead 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Wanchain Homestead 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Glossary" href="../glossary.html"/>
+        <link rel="prev" title="Mining" href="../mining.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Wanchain Homestead
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connecting-to-clients/index.html">Connecting to Ethereum Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../account-management.html">Account Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mining.html">Mining</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#questions">Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-ethereum">What is Ethereum?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-have-heard-of-ethereum-but-what-are-geth-mist-ethminer-mix">I have heard of Ethereum, but what are Geth, Mist, Ethminer, Mix?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-store-big-files-on-the-blockchain">How can I store big files on the blockchain?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-ethereum-based-on-bitcoin">Is Ethereum based on Bitcoin?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-future-of-ethereum">What’s the future of Ethereum?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-difference-between-account-and-wallet-contract">What’s the difference between account and “wallet contract”?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#are-keyfiles-only-accessible-from-the-computer-you-downloaded-the-client-on">Are keyfiles only accessible from the computer you downloaded the client on?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-long-should-it-take-to-download-the-blockchain">How long should it take to download the blockchain?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-get-a-list-of-transactions-into-out-of-an-address">How do I get a list of transactions into/out of an address?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-a-contract-pay-for-its-execution">Can a contract pay for its execution?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-a-contract-call-another-contract">Can a contract call another contract?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-a-transaction-be-signed-offline-and-then-submitted-on-another-online-device">Can a transaction be signed offline and then submitted on another online device?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-get-testnet-ether">How to get testnet Ether?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-a-transaction-be-sent-by-a-third-party-i-e-can-transaction-broadcasting-be-outsourced">Can a transaction be sent by a third party? i.e can transaction broadcasting be outsourced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-ethereum-contracts-pull-data-using-third-party-apis">Can Ethereum contracts pull data using third-party APIs?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-the-content-of-the-data-and-contracts-sent-over-the-ethereum-network-encrypted">Is the content of the data and contracts sent over the Ethereum network encrypted?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-i-store-secrets-or-passwords-on-the-ethereum-network">Can I store secrets or passwords on the Ethereum network?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-will-ethereum-combat-centralisation-of-mining-pools">How will Ethereum combat centralisation of mining pools?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-will-ethereum-deal-with-ever-increasing-blockchain-size">How will Ethereum deal with ever increasing blockchain size?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-will-ethereum-ensure-the-network-is-capable-of-making-10-000-transactions-per-second">How will Ethereum ensure the network is capable of making 10,000+ transactions-per-second?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-do-the-contracts-reside">Where do the contracts reside?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-question-is-still-not-answered">Your question is still not answered?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">The Homestead Documentation Initiative</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Wanchain Homestead</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Frequently Asked Questions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/frequently-asked-questions/frequently-asked-questions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#questions" id="id1">Questions</a><ul>
+<li><a class="reference internal" href="#what-is-ethereum" id="id2">What is Ethereum?</a></li>
+<li><a class="reference internal" href="#i-have-heard-of-ethereum-but-what-are-geth-mist-ethminer-mix" id="id3">I have heard of Ethereum, but what are Geth, Mist, Ethminer, Mix?</a></li>
+<li><a class="reference internal" href="#how-can-i-store-big-files-on-the-blockchain" id="id4">How can I store big files on the blockchain?</a></li>
+<li><a class="reference internal" href="#is-ethereum-based-on-bitcoin" id="id5">Is Ethereum based on Bitcoin?</a></li>
+<li><a class="reference internal" href="#what-s-the-future-of-ethereum" id="id6">What’s the future of Ethereum?</a></li>
+<li><a class="reference internal" href="#what-s-the-difference-between-account-and-wallet-contract" id="id7">What’s the difference between account and “wallet contract”?</a></li>
+<li><a class="reference internal" href="#are-keyfiles-only-accessible-from-the-computer-you-downloaded-the-client-on" id="id8">Are keyfiles only accessible from the computer you downloaded the client on?</a></li>
+<li><a class="reference internal" href="#how-long-should-it-take-to-download-the-blockchain" id="id9">How long should it take to download the blockchain?</a></li>
+<li><a class="reference internal" href="#how-do-i-get-a-list-of-transactions-into-out-of-an-address" id="id10">How do I get a list of transactions into/out of an address?</a></li>
+<li><a class="reference internal" href="#can-a-contract-pay-for-its-execution" id="id11">Can a contract pay for its execution?</a></li>
+<li><a class="reference internal" href="#can-a-contract-call-another-contract" id="id12">Can a contract call another contract?</a></li>
+<li><a class="reference internal" href="#can-a-transaction-be-signed-offline-and-then-submitted-on-another-online-device" id="id13">Can a transaction be signed offline and then submitted on another online device?</a></li>
+<li><a class="reference internal" href="#how-to-get-testnet-ether" id="id14">How to get testnet Ether?</a></li>
+<li><a class="reference internal" href="#can-a-transaction-be-sent-by-a-third-party-i-e-can-transaction-broadcasting-be-outsourced" id="id15">Can a transaction be sent by a third party? i.e can transaction broadcasting be outsourced</a></li>
+<li><a class="reference internal" href="#can-ethereum-contracts-pull-data-using-third-party-apis" id="id16">Can Ethereum contracts pull data using third-party APIs?</a></li>
+<li><a class="reference internal" href="#is-the-content-of-the-data-and-contracts-sent-over-the-ethereum-network-encrypted" id="id17">Is the content of the data and contracts sent over the Ethereum network encrypted?</a></li>
+<li><a class="reference internal" href="#can-i-store-secrets-or-passwords-on-the-ethereum-network" id="id18">Can I store secrets or passwords on the Ethereum network?</a></li>
+<li><a class="reference internal" href="#how-will-ethereum-combat-centralisation-of-mining-pools" id="id19">How will Ethereum combat centralisation of mining pools?</a></li>
+<li><a class="reference internal" href="#how-will-ethereum-deal-with-ever-increasing-blockchain-size" id="id20">How will Ethereum deal with ever increasing blockchain size?</a></li>
+<li><a class="reference internal" href="#how-will-ethereum-ensure-the-network-is-capable-of-making-10-000-transactions-per-second" id="id21">How will Ethereum ensure the network is capable of making 10,000+ transactions-per-second?</a></li>
+<li><a class="reference internal" href="#where-do-the-contracts-reside" id="id22">Where do the contracts reside?</a></li>
+<li><a class="reference internal" href="#your-question-is-still-not-answered" id="id23">Your question is still not answered?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="questions">
+<h2><a class="toc-backref" href="#id1">Questions</a><a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-ethereum">
+<h3><a class="toc-backref" href="#id2">What is Ethereum?</a><a class="headerlink" href="#what-is-ethereum" title="Permalink to this headline">¶</a></h3>
+<p>Ethereum is a decentralized smart contracts platform that is powered by a cryptocurrency called Ether. A good starting point to learn more about its workings would be the “<a class="reference internal" href="../introduction/what-is-ethereum.html#what-is-ethereum"><span class="std std-ref">What is Ethereum?</span></a>” page.</p>
+</div>
+<div class="section" id="i-have-heard-of-ethereum-but-what-are-geth-mist-ethminer-mix">
+<h3><a class="toc-backref" href="#id3">I have heard of Ethereum, but what are Geth, Mist, Ethminer, Mix?</a><a class="headerlink" href="#i-have-heard-of-ethereum-but-what-are-geth-mist-ethminer-mix" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Geth</strong>: This is the Go implementation of an Ethereum node, and is the basis for any interactions with the Ethereum blockchain. Running this locally will allow you to easily interact with the Ethereum blockchain. Read the <a class="reference external" href="https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum">go-ethereum installation instructions</a>.</li>
+<li><strong>Mist</strong>: This is the equivalent of a web browser, but for the Ethereum platform. It acts as a GUI to display the accounts and contracts that you interact with. It also allows you to create and interact with contracts in a graphical user interface without ever touching the command line. If you are not a developer and just want to store ether and interact with Ethereum contracts, then Mist is the program to use. Downloads can be found on the <a class="reference external" href="https://github.com/ethereum/mist/releases">Mist releases page</a>.</li>
+<li><strong>Ethminer</strong>: A standalone miner. This can be used to mine or benchmark a mining set-up. It is compatible with eth, geth, and pyethereum. Check out the <a class="reference internal" href="../mining.html#mining"><span class="std std-ref">Mining</span></a> page for more information.</li>
+<li><strong>Mix</strong>: The integrated development environment for DApp authoring. Quickly prototype and debug decentralised applications on the Ethereum platform. More information can be found at the <a class="reference external" href="https://github.com/ethereum/mix">Mix GitHub Page</a>.</li>
+</ul>
+</div>
+<div class="section" id="how-can-i-store-big-files-on-the-blockchain">
+<h3><a class="toc-backref" href="#id4">How can I store big files on the blockchain?</a><a class="headerlink" href="#how-can-i-store-big-files-on-the-blockchain" title="Permalink to this headline">¶</a></h3>
+<p>In general you do not want to store large files or pieces of data in the Ethereum blockchain because of the high cost of storage. You will need to use a third party storage solution, such as Swarm or IPFS. Swarm is an Ethereum-specific project for distributed file storage. IPFS is an non-Ethereum project which has close ties to Ethereum; it will be used independently and may be used as an added layer underlying Swarm in the future. See <a class="reference external" href="http://ethereum.stackexchange.com/questions/1000/what-are-some-proposed-ways-of-storing-data-in-ethereum/1001#1001">this Ethereum StackExchange post on the topic</a> for more information.</p>
+</div>
+<div class="section" id="is-ethereum-based-on-bitcoin">
+<h3><a class="toc-backref" href="#id5">Is Ethereum based on Bitcoin?</a><a class="headerlink" href="#is-ethereum-based-on-bitcoin" title="Permalink to this headline">¶</a></h3>
+<p>Only in the sense that it uses a blockchain, which Bitcoin pioneered. Ethereum has a separate blockchain that has several significant technical differences from Bitcoin’s blockchain. See <a class="reference external" href="http://ethereum.stackexchange.com/questions/700/what-are-the-differences-between-bitcoin-blockchain-and-ethereum-blockchain">this Ethereum StackExchange answer</a> for a detailed explanation.</p>
+</div>
+<div class="section" id="what-s-the-future-of-ethereum">
+<h3><a class="toc-backref" href="#id6">What’s the future of Ethereum?</a><a class="headerlink" href="#what-s-the-future-of-ethereum" title="Permalink to this headline">¶</a></h3>
+<p>Ethereum developers are planning a switch from a Proof-of-Work consensus model to a Proof-of-Stake consensus model in the future. They are also investigating scalability solutions and how to store secrets on the blockchain.</p>
+</div>
+<div class="section" id="what-s-the-difference-between-account-and-wallet-contract">
+<h3><a class="toc-backref" href="#id7">What’s the difference between account and “wallet contract”?</a><a class="headerlink" href="#what-s-the-difference-between-account-and-wallet-contract" title="Permalink to this headline">¶</a></h3>
+<p>An account is your public / private key pair file that serves as your identity on the blockchain. See “account” in the glossary. A “wallet contract” is an Ethereum contract that secures your ether and identity with features such as multisignature signing and programmed deposit/withdrawal limits. A wallet contract can be easily created in the Mist Ethereum Wallet GUI client.</p>
+</div>
+<div class="section" id="are-keyfiles-only-accessible-from-the-computer-you-downloaded-the-client-on">
+<h3><a class="toc-backref" href="#id8">Are keyfiles only accessible from the computer you downloaded the client on?</a><a class="headerlink" href="#are-keyfiles-only-accessible-from-the-computer-you-downloaded-the-client-on" title="Permalink to this headline">¶</a></h3>
+<p>No, you are welcome to export or move the keyfile, but always remember to backup your keyfiles and be aware of which computers you store your keyfile on.</p>
+</div>
+<div class="section" id="how-long-should-it-take-to-download-the-blockchain">
+<h3><a class="toc-backref" href="#id9">How long should it take to download the blockchain?</a><a class="headerlink" href="#how-long-should-it-take-to-download-the-blockchain" title="Permalink to this headline">¶</a></h3>
+<p>The Ethereum blockchain is constantly growing, and is nearing 10GB as of March 2016. The amount of time it will take to download depends on the amount of peers you are able to connect to, your internet connection speed, and other factors. See the <span class="xref std std-ref">download-the-blockchain-faster</span> section for tips on syncing the blockchain more quickly.</p>
+</div>
+<div class="section" id="how-do-i-get-a-list-of-transactions-into-out-of-an-address">
+<h3><a class="toc-backref" href="#id10">How do I get a list of transactions into/out of an address?</a><a class="headerlink" href="#how-do-i-get-a-list-of-transactions-into-out-of-an-address" title="Permalink to this headline">¶</a></h3>
+<p>You would have to pull the transactions manually out of the blockchain to achieve this. Alternatively, you can rely on third party explorers’ API’s like <a class="reference external" href="https://etherchain.org/apidoc">Etherchain</a>. For contract execution transactions however, you can filter the contract logs to achieve this.</p>
+</div>
+<div class="section" id="can-a-contract-pay-for-its-execution">
+<h3><a class="toc-backref" href="#id11">Can a contract pay for its execution?</a><a class="headerlink" href="#can-a-contract-pay-for-its-execution" title="Permalink to this headline">¶</a></h3>
+<p>No this is not possible. The gas for the execution must be provided by the address submitting the execution request.</p>
+</div>
+<div class="section" id="can-a-contract-call-another-contract">
+<h3><a class="toc-backref" href="#id12">Can a contract call another contract?</a><a class="headerlink" href="#can-a-contract-call-another-contract" title="Permalink to this headline">¶</a></h3>
+<p>Yes, this is possible, read <a class="reference external" href="https://dappsforbeginners.wordpress.com/tutorials/interactions-between-contracts/">about interactions between contracts</a>.</p>
+</div>
+<div class="section" id="can-a-transaction-be-signed-offline-and-then-submitted-on-another-online-device">
+<h3><a class="toc-backref" href="#id13">Can a transaction be signed offline and then submitted on another online device?</a><a class="headerlink" href="#can-a-transaction-be-signed-offline-and-then-submitted-on-another-online-device" title="Permalink to this headline">¶</a></h3>
+<p>Yes, you can refer to the solution from <a class="reference external" href="https://github.com/ConsenSys/icebox">Icebox</a>.</p>
+</div>
+<div class="section" id="how-to-get-testnet-ether">
+<h3><a class="toc-backref" href="#id14">How to get testnet Ether?</a><a class="headerlink" href="#how-to-get-testnet-ether" title="Permalink to this headline">¶</a></h3>
+<p>See <span class="xref std std-ref">test-networks</span>.</p>
+</div>
+<div class="section" id="can-a-transaction-be-sent-by-a-third-party-i-e-can-transaction-broadcasting-be-outsourced">
+<h3><a class="toc-backref" href="#id15">Can a transaction be sent by a third party? i.e can transaction broadcasting be outsourced</a><a class="headerlink" href="#can-a-transaction-be-sent-by-a-third-party-i-e-can-transaction-broadcasting-be-outsourced" title="Permalink to this headline">¶</a></h3>
+<p>Technically yes, but there is an important restriction as opposed to bitcoin signed transactions: in ethereum the transaction has a nonce (more precisely, each account increases a counter when sending a transaction based on how many transactions total have been sent. If 3 transactions have ever been sent from the account, the account nonce would be 3).</p>
+</div>
+<div class="section" id="can-ethereum-contracts-pull-data-using-third-party-apis">
+<h3><a class="toc-backref" href="#id16">Can Ethereum contracts pull data using third-party APIs?</a><a class="headerlink" href="#can-ethereum-contracts-pull-data-using-third-party-apis" title="Permalink to this headline">¶</a></h3>
+<p>No, Ethereum contracts cannot pull data from external information sources in this way. It is however possible to push data from external sites (e.g. weather sites, stock prices) to Ethereum contracts through transactions. There are “oracle” services that are compatible with the Ethereum network that will pull/push data to the Ethereum network for a fee.</p>
+</div>
+<div class="section" id="is-the-content-of-the-data-and-contracts-sent-over-the-ethereum-network-encrypted">
+<h3><a class="toc-backref" href="#id17">Is the content of the data and contracts sent over the Ethereum network encrypted?</a><a class="headerlink" href="#is-the-content-of-the-data-and-contracts-sent-over-the-ethereum-network-encrypted" title="Permalink to this headline">¶</a></h3>
+<p>Data and contracts on the Ethereum network are encoded, but not encrypted. Everyone can audit the behavior of the contracts and the data sent to them. However, you are always free to encrypt data locally before broadcasting it to the network.</p>
+</div>
+<div class="section" id="can-i-store-secrets-or-passwords-on-the-ethereum-network">
+<h3><a class="toc-backref" href="#id18">Can I store secrets or passwords on the Ethereum network?</a><a class="headerlink" href="#can-i-store-secrets-or-passwords-on-the-ethereum-network" title="Permalink to this headline">¶</a></h3>
+<p>All data on Ethereum is public. It is not possible to store secrets or passwords in Ethereum contracts without it being seen by all. There is work being done to make this a possibility through code obfuscation and other techniques. A good read would be “<a class="reference external" href="https://blog.ethereum.org/2016/01/15/privacy-on-the-blockchain/">Privacy on the Blockchain</a>” by Vitalik Buterin.</p>
+</div>
+<div class="section" id="how-will-ethereum-combat-centralisation-of-mining-pools">
+<h3><a class="toc-backref" href="#id19">How will Ethereum combat centralisation of mining pools?</a><a class="headerlink" href="#how-will-ethereum-combat-centralisation-of-mining-pools" title="Permalink to this headline">¶</a></h3>
+<p>There are two primary ways that the Ethereum PoW based consensus algorithm combats mining centralisation (<a class="reference external" href="http://ethereum.stackexchange.com/questions/549/how-does-ethereum-avoid-mining-pool-centralization">Source</a>).</p>
+<ul class="simple">
+<li>The first is by reducing losses due to orphaned blocks, which independent miners are more likely to experience.<ul>
+<li>This portion of the Ethereum mining algorithm, a technique referred to as GHOST, includes the headers only of recently orphaned blocks in return for a reduced reward to both the block producer and the includer of the (otherwise orphaned) block. These included orphans from “grandparent” or earlier blocks are frequently referred to as “uncle” blocks because the gender neutral term “ommer” isn’t widely known or understood.</li>
+</ul>
+</li>
+<li>The second way that the Ethereum PoW consensus algorithm combats mining centralisation is by its use of a Proof of Work function that is ASIC resistant.<ul>
+<li>By preventing mining from becoming dominated by specially designed and produced hardware, independent miners are kept competitive or even given an advantage in terms of their profits and/or levels of hardware investment, because they can make use of readily available commodity hardware (i.e. consumer graphics cards).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="how-will-ethereum-deal-with-ever-increasing-blockchain-size">
+<h3><a class="toc-backref" href="#id20">How will Ethereum deal with ever increasing blockchain size?</a><a class="headerlink" href="#how-will-ethereum-deal-with-ever-increasing-blockchain-size" title="Permalink to this headline">¶</a></h3>
+<p>There are many discussions around blockchain scalability. This questioned has been partially answered on <a class="reference external" href="http://ethereum.stackexchange.com/questions/521/what-does-it-mean-to-run-code-on-the-blockchain-wouldnt-blockchain-become-hu">this Ethereum StackExchange post</a> and <a class="reference external" href="https://blog.ethereum.org/2014/02/18/ethereum-scalability-and-decentralization-updates/">this blog post from Vitalik Buterin</a>.</p>
+</div>
+<div class="section" id="how-will-ethereum-ensure-the-network-is-capable-of-making-10-000-transactions-per-second">
+<h3><a class="toc-backref" href="#id21">How will Ethereum ensure the network is capable of making 10,000+ transactions-per-second?</a><a class="headerlink" href="#how-will-ethereum-ensure-the-network-is-capable-of-making-10-000-transactions-per-second" title="Permalink to this headline">¶</a></h3>
+<p>Ethereum is planning on implementing a proof-of-stake consensus protocol change during the Serenity phase of their development roadmap. More information on the likely Ethereum PoS candidate and how it may increase transactions-per-second can be <a class="reference external" href="https://blog.ethereum.org/2015/08/01/introducing-casper-friendly-ghost/">found here</a>.</p>
+</div>
+<div class="section" id="where-do-the-contracts-reside">
+<h3><a class="toc-backref" href="#id22">Where do the contracts reside?</a><a class="headerlink" href="#where-do-the-contracts-reside" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="your-question-is-still-not-answered">
+<h3><a class="toc-backref" href="#id23">Your question is still not answered?</a><a class="headerlink" href="#your-question-is-still-not-answered" title="Permalink to this headline">¶</a></h3>
+<p>Ask the community on <a class="reference external" href="http://ethereum.stackexchange.com/">Ethereum StackExchange</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mining.html" class="btn btn-neutral" title="Mining" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Wanchain community.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
