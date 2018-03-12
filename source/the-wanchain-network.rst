@@ -16,5 +16,5 @@ Pass the ``--testnet`` argument to the client. e.g.:
 
    > gwan --testnet
    
-   > wanwalletgui --testnet
+   > wanwalletgui --network testnet
 
