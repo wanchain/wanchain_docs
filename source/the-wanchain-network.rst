@@ -10,3 +10,11 @@ Main network
 Test network
 ================================================================================
 
+Pass the ``--testnet`` argument to the client. e.g.:
+
+.. code:: Console
+
+   > gwan --testnet
+   
+   > wanwalletgui --testnet
+
