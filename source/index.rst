@@ -26,4 +26,4 @@ Contents
    wan-account.rst
    wan.rst
    the-wanchain-network.rst
-   contracts-and-transactions.rst
+   contracts-and-transactions/index.rst
