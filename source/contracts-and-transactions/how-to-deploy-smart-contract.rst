@@ -1,10 +1,10 @@
 .. _How To Deploy Smart Contract:
 
 ********************************************************************************
-How To Deploy Smart Contract
+How To Deploy Smart Contract On Wanchain
 ********************************************************************************
 
-Smart Contract Source Code
+Smart Contract Source Code Example
 ================================================================================
 
 .. note:: The following smart contract code is only an example and is NOT to be used in Production systems.
@@ -191,7 +191,7 @@ Smart Contract Source Code
 .. note:: * Privacy transaction function is "otatransfer" in the ERC20 Protocol, the contract with privacy transaction need to implement ERC20 Protocol
           * Privacy balance is stored in the map privacyBalance, function otabalanceOf can get this balance
 
-How to compile and deploy
+How To Compile And Deploy
 ================================================================================
 
 Requirement:
@@ -553,7 +553,7 @@ Steps:
 
     .. note:: You can locate a demo WANCHAIN token contract and involved scripts under contracts/demo/ directory
 
-How to invoke privacy transfer
+How To Invoke Privacy Transfer
 ================================================================================
 
 After deployed above token contract on WANCHAIN,in the WANCHAIN console,you can invoke token privacy transaction according to following process:
