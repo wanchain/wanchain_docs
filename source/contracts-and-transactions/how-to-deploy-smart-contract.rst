@@ -162,30 +162,31 @@ Smart Contract Source Code Example
         return allowed[_owner][_spender];
         }
 
-    mapping (address => uint) balances; mapping (address => mapping (address => uint)) allowed;
-    // privacy balance, bytes for public key 
-    mapping (address => uint256) public privacyBalance;
-    mapping (address => bytes) public otaKey;
+        mapping (address => uint) balances; mapping (address => mapping (address => uint)) allowed;
+        // privacy balance, bytes for public key 
+        mapping (address => uint256) public privacyBalance;
+        mapping (address => bytes) public otaKey;
 
-    //this only for initialize, only for test to mint token to one wan address
-    function initPrivacyAsset(address initialBase, bytes baseKeyBytes, uint256 value) public {
-        privacyBalance[initialBase] = value;
-        otaKey[initialBase] = baseKeyBytes;
-    }   
+        //this only for initialize, only for test to mint token to one wan address
+        function initPrivacyAsset(address initialBase, bytes baseKeyBytes, uint256 value) public {
+            privacyBalance[initialBase] = value;
+            otaKey[initialBase] = baseKeyBytes;
+        }   
 
-    // return string just for debug
-    function otatransfer(address _to, bytes _toKey, uint256 _value) public returns (string) {      
-        if(privacyBalance[msg.sender] < _value) return "sender token too low";
-        
-        privacyBalance[msg.sender] -= _value;
-        privacyBalance[_to] += _value;
-        otaKey[_to] = _toKey;
-        return "success";
-    } 
+        // return string just for debug
+        function otatransfer(address _to, bytes _toKey, uint256 _value) public returns (string) {      
+            if(privacyBalance[msg.sender] < _value) return "sender token too low";
+            
+            privacyBalance[msg.sender] -= _value;
+            privacyBalance[_to] += _value;
+            otaKey[_to] = _toKey;
+            return "success";
+        } 
 
-    //check privacy balance
-    function otabalanceOf(address _owner) public view returns (uint256 balance) {
-        return privacyBalance[_owner];
+        //check privacy balance
+        function otabalanceOf(address _owner) public view returns (uint256 balance) {
+            return privacyBalance[_owner];
+        }
     }
 
 .. note:: * Privacy transaction function is "otatransfer" in the ERC20 Protocol, the contract with privacy transaction need to implement ERC20 Protocol
