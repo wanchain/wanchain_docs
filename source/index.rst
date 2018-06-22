@@ -27,3 +27,4 @@ Contents
    wan.rst
    the-wanchain-network.rst
    contracts-and-transactions/index.rst
+   hackathon-resources.rst
