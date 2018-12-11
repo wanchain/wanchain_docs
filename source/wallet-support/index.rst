@@ -1,10 +1,9 @@
 ################################################################################
-Contracts and Transactions
+Wallet Support
 ################################################################################
 
 .. toctree::
    :maxdepth: 2
-
-   how-to-deploy-smart-contract.rst
-   developer-tools.rst
-   cross-chain-transactions.rst
+   
+   wallet-support.rst
+   sha256-checksum.rst

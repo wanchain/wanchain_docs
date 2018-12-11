@@ -28,4 +28,4 @@ Contents
    the-wanchain-network.rst
    contracts-and-transactions/index.rst
    hackathon-resources.rst
-   wallet-support.rst
+   wallet-support/index.rst
