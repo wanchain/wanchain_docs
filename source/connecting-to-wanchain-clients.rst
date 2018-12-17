@@ -14,14 +14,9 @@ There are three GUI wallets for belowing type of operate systems:
 
 We have an universal **How to Use GUI wallet guide** to guide you step by step to quickly get familar with our wallet
 
-Getting started with Wanchain wallet
+`Getting started with Wanchain wallet <https://github.com/wanchain/go-wanchain/wiki/Install-the-Wanchain-Wallet>`_
 
-* https://github.com/wanchain/go-wanchain/wiki/Getting-Started-with-Wanchain-Wallet
-
-How to Use GUI Wallet guide
-
-* https://github.com/wanchain/go-wanchain/wiki/How-To-Use-(GUI)-Guide
-
+`How to Use GUI Wallet guide <https://github.com/wanchain/go-wanchain/wiki/Launch-the-Wanchain-Wallet>`_
 
 ================================================================================
 Command Line
