@@ -73,6 +73,6 @@ Official Links:
 
 * `Whitepaper <https://wanchain.org/files/Wanchain-Whitepaper-EN-version.pdf>`_
 * `Yellowpaper <https://wanchain.org/files/Wanchain-Yellowpaper-EN-version.pdf>`_
-* `Commericalpaper <https://wanchain.org/files/Wanchain-Commercial-Whitepaper-EN-version.pdf>`_
+* `Commerical Paper <https://wanchain.org/files/Wanchain-Commercial-Whitepaper-EN-version.pdf>`_
 
 * `Meet the team <https://www.youtube.com/watch?v=vh6Kv0CRtfE>`_
