@@ -7,18 +7,18 @@ Introduction
 What is Wanchain?
 ================================================================================
 
-Wanchain aims to build a blockchain infrastructure that can be used to realize the connection and value exchange of different block-chain networks in a decentralized way. It uses the latest theory of cryptography to make up for the shortcomings of existing inter-chain protocol. Any blockchain network, whether public chain, private chain or alliance chain, can be access to Wanchain to complete the inter-chain transaction of digital assets at a low cost. Wanchain is not just a generic inter-chain protocol, but also a distributed ledger that records inter-chain transactions and in-chain transactions. This ledger supports not only the smart contracts, but also the privacy protection of smart contract tokens trade. It is a qualitative leap to the Interconnection of thousands of Chains and turn of Chains into Internet, and the centralized application of advanced cryptography theory in the field of blockchain, as well as a new and complete blockchain network with high efficiency and completeness.
-Wanchain is about to reshape the economic ecology of blockchain.
+Wanchain aims to build a blockchain infrastructure that can be used to realize the connection and value exchange of different blockchain networks in a decentralized way. It uses the latest theories of cryptography to make up for the shortcomings of existing cross chain protocols. Any blockchain network, whether public, private, or consortium, can connect with Wanchain to enable the cross chain transaction of its digital assets at a low cost. Wanchain is not just a generic cross chain protocol, but also a distributed ledger that records cross chain transactions and native chain transactions. This ledger supports both smart contracts and private transactions. It is a major step towards connecting all blockchains and the creation of the Internet of Value. It represents major advances in the decentralized application of advanced cryptographic theory in the field of blockchain, as well as a new and complete blockchain network with high efficiency.
+Wanchain is about to reshape the economic ecosystem of blockchain.
 
 ================================================================================
-Differentiation of other blockchain product
+Differentiation with other blockchain products
 ================================================================================
 
-From the perspective of blockchain industry’s development, the ultimate vision of Wanchain is to create an “Internet” of blockchain to achieve the qualitative leap of blockchain turning from chains to internet. In Wanchain’s ecosystem, thousands of chains are interconnected, where value can be transferred free from barriers, giving full play of blockchains function of carrying and transferring value. Wanchain is about to reshape the economic ecology.
+The ultimate vision of Wanchain is to create an “Internet” of blockchain to achieve in which all the fundamentally isolated blockchains are connected together to form an internet of value. Within Wanchain’s ecosystem, thousands of chains will interconnected and value will be transferred freely without barriers, allowing blockchains to reach their full potential of carrying and transferring value. Wanchain is about to reshape the economic ecosystem.
 
-From the perceptive of the development of blockchain’s underlying technology, Wanchain applies secure multi-party computation, threshold secret sharing, ring signature scheme based on elliptic curve, one-off generation mechanism of account and many other cutting-edge technologies of cryptology, and solves privacy protection problem of smart contract token transaction. To some extent, Wanchain is the typical application of advanced cryptography solving the real problems of blockchain, representing the development direction of blockchain’s underlying technology, that is, transforming from conditional security to provable security, from logical control to algorithm theory control. Wanchain boasts a professional cryptography research team who will continue to contribute to the industry as a whole for the cryptography applying in the field of blockchain.       
+Wanchain applies secure multi-party computation, threshold secret sharing, ring signatures based on elliptic curve cryptography, one-off account generation and many other cutting-edge technologies in order to achieve its cross chain and private functionalities. Wanchain boasts a professional cryptography research team who will continue to contribute to the industry as a whole by applying cryptography in the field of blockchain.       
 
-From the perspective of blockchain application, Wanchain is more than a blockchain project realizing inter-chain transaction and interoperability of multiple assets, but a complete blockchain developing platform. While achieving the function of inter-chain transaction, Wanchain is also a blockchain network that can run independently: it contains native coin, supports smart contracts, and has privacy protection mechanisms for smart contract token transactions. Any developers may develop application met their need on Wanchain in accordance with application scenario. 
+Wanchain is more than just a blockchain project realizing cross chain transaction and interoperability between multiple chains. It is also a complete blockchain development platform. While achieving the function of cross chain transactions, Wanchain is also a blockchain network that can run independently: it has a native coin, supports smart contracts, and has a privacy protection mechanisms for token transactions. Any developer may develop application which meet their needs on Wanchain.
 
 ================================================================================
 Milestones
@@ -30,15 +30,15 @@ Milestones
 
     **2016/12**
 
-    Development on Proof of Concept
+    Developed proof of concept
 
     **2017/06**
 
-    White Paper published. Wanchain.org online
+    White paper published. Wanchain.org online
 
     **2017/09**
 
-    ICO Crowd funding
+    ICO crowd funding
 
     **2018/01**
 
