@@ -9,21 +9,21 @@ https://github.com/wanchain/go-wanchain/wiki/How-To-Use-(GUI)-Guide
 Keystore
 ================================================================================
 
-Keystore is where controls your account details, if you lose your keystore files you are at high risks to lose all your current assets, therefore we strongly recommend you backup all keystore files at a place you could trust and won't forget (ie Offline PC device or U-Disk etc)
+The keystore is where your account details are controlled, if you lose your keystore files you are at high risk for losing all your current assets. Therefore we strongly recommend you backup all keystore files in a place you trust and won't forget (i.e., offline device, usb drive, paper wallet, etc.)
 
-At any circumstances, you should NOT share or reveal your keystore information with anyone you don't trust, you might get stolen by doing so . If you think your keystore has been leak to any 3rd parties, please transfer your assets to a new account !
+You should NEVER share or reveal your keystore information with anyone you don't trust. You assets may be taken by anyone with your keystore information. If you think your keystore has been leaked to any 3rd parties, please transfer your assets to a new account !
 
-You can always find your accounts & application data at backups
+You can always find your accounts & application data in your backup location
 
 **Open your Wallet GUI click:**
  *File -> Backup -> Accounts /Application data*
 
-Once you clicked Accounts it will pop up a folder with "Keystore" file inside.
+Once you clicked Accounts folder with the "Keystore" file inside will pop up.
 
 **Here is the root :**
  *C:\Users\Administrator\AppData\Roaming\wanchain*
 
-Double click Keystore files under file wanchain, you will find all your accounts information and those file/files are what you need to keep in safe all the time.
+Double click Keystore files under file wanchain, you will find all your accounts' information and those file/files are what you need to keep safe.
 
 ================================================================================
 Creating Account
@@ -31,13 +31,13 @@ Creating Account
 
 1. Have an existing account
 
-   If you have an existing keystore file , you can simply conduct drag & drop on your wallet GUI to get it back 
+   If you have an existing keystore file , you can simply drag & drop the file onto the GUI Wallet to get it back 
 
    *File -> Import accounts -> Drag & Drop -> Done*
 
 2. Create a new account
 
-   If you need to create a new account , simply click **"Account"** once you log in wallet GUI .
+   If you need to create a new account , simply click **"Account"** once you log in to the GUI Wallet.
 
    *Account -> Input New Account Name -> Enter/Re-enter password -> Done*
 
@@ -45,7 +45,7 @@ Creating Account
 Ordinary & Private Address
 ================================================================================
 
-Ordinary address (Short address) as known as public address which allows everyone see transaction details. On the opposite, Private address (Long address) as known as MSA (Master Stealth Address) which details will not be revealed.
+Ordinary address (the shorter address), also known as a public address, allows everyone to see transaction details. On the contrary, private addresses (the longer address) also known as the MSA (Master Stealth Address), is never revealed to third parties.
 
 .. code:: js
 
@@ -63,6 +63,6 @@ The process to backup your acounts :
 
 Click  *File -> Backup -> Application Data*
 
-You will see files under **WanWalletGui** as defaulted. Please select them all and make copy to a safety place where you can trust.
+You will see files under **WanWalletGui** as default. Please select them all and copy them to a safet place where you can trust.
 
-The Accounts & Application Data stores all your public transaction records, private transaction records and OTA balance. If you delete these files , you will not lose your assets but you will not be able to see your assets at your current wallet at meantime unless you back them up in advance . However, you can always call it back via "Import Account" which we have demonstrated to you in above content.
+The Accounts & Application Data stores all your public transaction records, private transaction records and OTA balance. If you delete these files , you will not lose your assets but you will not be able to see your assets at your current wallet unless you back them up in advance . However, you can always call it back via "Import Account," which we have demonstrated to you in above content.
